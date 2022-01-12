@@ -23,6 +23,7 @@ public class Arrow : MonoBehaviour
     private GameObject hookPrefab;
     private GameObject hook;
     private Rigidbody2D hookrb;
+    private LineRenderer hooklr;
 
     // 궤적
     [SerializeField]
@@ -63,6 +64,9 @@ public class Arrow : MonoBehaviour
             // 중심 생성
             hook = Instantiate(hookPrefab, (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
             hookrb = hook.GetComponent<Rigidbody2D>();
+            hooklr = hook.GetComponent<LineRenderer>();
+            hooklr.startWidth = 0.05f;
+            hooklr.endWidth = 0.05f;
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -118,14 +122,18 @@ public class Arrow : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        hooklr.SetPosition(0, hookrb.position);
+
         // 당길 수 있는 최대 거리 설정
         if (Vector2.Distance(mousePos, hookrb.position) >= maxDragDist)
         {
             rb.MovePosition(originPos + (mousePos - hookrb.position).normalized * maxDragDist);
+            hooklr.SetPosition(1, hookrb.position + (mousePos - hookrb.position).normalized * maxDragDist);
         }
         else if (Vector2.Distance(mousePos, hookrb.position) > minDragDist)
         {
             rb.MovePosition(originPos + (mousePos - hookrb.position));
+            hooklr.SetPosition(1, mousePos);
         }
 
         // 당기기 취소
