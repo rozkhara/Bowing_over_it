@@ -17,6 +17,13 @@ public class Arrow : MonoBehaviour
     private bool isFlying = false;
     private bool isCancelled = false;
 
+    private Vector2 originPos;
+
+    [SerializeField]
+    private GameObject hookPrefab;
+    private GameObject hook;
+    private Rigidbody2D hookrb;
+
     // 궤적
     [SerializeField]
     private GameObject pointPrefab;
@@ -26,8 +33,6 @@ public class Arrow : MonoBehaviour
     private int numOfPoints;
 
     private Rigidbody2D rb;
-    [SerializeField]
-    private Rigidbody2D hook;
 
     void Start()
     {
@@ -37,6 +42,8 @@ public class Arrow : MonoBehaviour
         rb.isKinematic = true;
 
         GetComponent<TrailRenderer>().enabled = false;
+
+        originPos = rb.position;
 
         points = new GameObject[numOfPoints];
         for (int i = 0; i < numOfPoints; i++)
@@ -48,6 +55,33 @@ public class Arrow : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            isPressed = true;
+            rb.isKinematic = true;
+
+            // 중심 생성
+            hook = Instantiate(hookPrefab, (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+            hookrb = hook.GetComponent<Rigidbody2D>();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!isCancelled)
+            {
+                isPressed = false;
+                rb.isKinematic = false;
+
+                StartCoroutine(Release());
+            }
+            else
+            {
+                isPressed = false;
+                isCancelled = false;
+            }
+
+            Destroy(hook);
+        }
+
         if (isPressed && !isFlying)
         {
             Aim();
@@ -61,31 +95,10 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
-    {
-        isPressed = true;
-        rb.isKinematic = true;
-    }
-
-    void OnMouseUp()
-    {
-        if (!isCancelled)
-        {
-            isPressed = false;
-            rb.isKinematic = false;
-
-            StartCoroutine(Release());
-        }
-        else
-        {
-            isPressed = false;
-            isCancelled = false;
-        }
-    }
-
     IEnumerator Release()
     {
-        Vector2 moveVec = (hook.position - rb.position) * force;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 moveVec = (originPos - rb.position) * force;
         rb.velocity = moveVec;
 
         isFlying = true;
@@ -104,20 +117,22 @@ public class Arrow : MonoBehaviour
     void Aim()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         // 당길 수 있는 최대 거리 설정
-        if (Vector2.Distance(mousePos, hook.position) > maxDragDist)
+        if (Vector2.Distance(mousePos, hookrb.position) >= maxDragDist)
         {
-            rb.MovePosition(hook.position + (mousePos - hook.position).normalized * maxDragDist);
+            rb.MovePosition(originPos + (mousePos - hookrb.position).normalized * maxDragDist);
         }
-        else
+        else if (Vector2.Distance(mousePos, hookrb.position) > minDragDist)
         {
-            rb.MovePosition(mousePos);
+            rb.MovePosition(originPos + (mousePos - hookrb.position));
         }
 
         // 당기기 취소
-        if (Vector2.Distance(mousePos, hook.position) < minDragDist)
+        if (Vector2.Distance(mousePos, hookrb.position) <= minDragDist)
         {
-            rb.position = hook.position;
+            rb.position = originPos;
+            rb.rotation = 0;
             isCancelled = true;
 
             for (int i = 0; i < points.Length; i++)
@@ -130,7 +145,7 @@ public class Arrow : MonoBehaviour
             isCancelled = false;
         }
 
-        rb.MoveRotation(Quaternion.LookRotation(hook.position - mousePos));
+        rb.MoveRotation(Quaternion.LookRotation(originPos - rb.position));
 
         // 취소 안할 시 궤적 생성
         if (!isCancelled)
@@ -138,14 +153,14 @@ public class Arrow : MonoBehaviour
             for (int i = 0; i < points.Length; i++)
             {
                 points[i].SetActive(true);
-                points[i].transform.position = PointPosition(i * 0.1f);
+                points[i].transform.position = PointPosition(i * 0.1f, mousePos);
             }
         }
     }
 
-    Vector2 PointPosition(float t)
+    Vector2 PointPosition(float t, Vector2 mousePos)
     {
-        Vector2 curPointPos = (Vector2)transform.position + (hook.position - rb.position) * force * t + 0.5f * Physics2D.gravity * (t * t);
+        Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * force * t + 0.5f * Physics2D.gravity * (t * t);
         return curPointPos;
     }
 }
