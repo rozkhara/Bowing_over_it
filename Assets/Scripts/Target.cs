@@ -46,18 +46,18 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //arrow의 position이 화살촉 끝이라 가정
-        if (collision.transform.tag == "arrow")
+        if (collision.transform.tag == "Arrow")
         {
-            StartCoroutine(ArrowTrriger(collision.transform.GetComponent<Rigidbody2D>()));
+            StartCoroutine(ArrowTrigger(collision.transform.GetComponent<Rigidbody2D>()));
         }
     }
     
-    private IEnumerator ArrowTrriger(Rigidbody2D rb)
+    private IEnumerator ArrowTrigger(Rigidbody2D rb)
     {
         yield return new WaitForFixedUpdate(); // 화살이 과녁에 박히는 시간
         rb.velocity = new Vector2(0, 0);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        Vector2 arrowLoc = rb.transform.position;
+        Vector2 arrowLoc = rb.transform.parent.transform.position;
         score = CalcScore(arrowLoc);
         ClearStage();
 
@@ -90,6 +90,9 @@ public class Target : MonoBehaviour
     private int CalcScore(Vector2 arrowLoc) // calculate score based on arrow location
     {
         float dist = Vector2.Distance(arrowLoc, baseLocation);
+        Debug.Log((arrowLoc));
+        Debug.Log((baseLocation));
+        Debug.Log(Vector2.Distance(arrowLoc, baseLocation));
         return Mathf.Min(Mathf.Max(-(int)(dist / scoreInterval), -numberOfScore+1),0) + numberOfScore; 
     }
 }

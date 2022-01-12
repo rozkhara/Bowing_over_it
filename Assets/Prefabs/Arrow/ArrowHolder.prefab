@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4186715997795144667}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,10 +265,10 @@ MonoBehaviour:
   maxDragDist: 2
   minDragDist: 0.2
   releaseTime: 0.17
+  hookPrefab: {fileID: 0}
   pointPrefab: {fileID: 3972265904527827930, guid: e4a098b6c0454f6488f4cd0b80ec6c6f, type: 3}
   points: []
   numOfPoints: 20
-  hook: {fileID: 0}
 --- !u!1 &4186715998921776425
 GameObject:
   m_ObjectHideFlags: 0
