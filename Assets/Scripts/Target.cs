@@ -34,7 +34,7 @@ public class Target : MonoBehaviour
     }
     private void Start()
     {
-        baseLocation = transform.position +  Quaternion.AngleAxis(transform.rotation.eulerAngles.y,new Vector3(0,1,0))*new Vector3(-1,0,0)* transform.localScale.x/2;
+        baseLocation = transform.position +  Quaternion.AngleAxis(transform.rotation.eulerAngles.z,new Vector3(0,0,1))*new Vector3(-1,0,0)* transform.localScale.x/2;
         targetLoc = transform.position;
         targetSize = transform.localScale.y;
         scoreInterval = targetSize / 2f / numberOfScore;
@@ -90,11 +90,11 @@ public class Target : MonoBehaviour
     private int CalcScore(Vector2 arrowLoc) // calculate score based on arrow location
     {
         float dist = Vector2.Distance(arrowLoc, baseLocation);
-        /*
+        
         Debug.Log(arrowLoc);
         Debug.Log(baseLocation);
         Debug.Log(Vector2.Distance(arrowLoc, baseLocation));
-        */
+        
         return Mathf.Min(Mathf.Max(-(int)(dist / scoreInterval), -numberOfScore + 1), 0) + numberOfScore;
     }
 }
