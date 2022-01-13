@@ -34,7 +34,7 @@ public class Target : MonoBehaviour
     }
     private void Start()
     {
-        baseLocation = transform.position + transform.forward * transform.localScale.x/2;
+        baseLocation = transform.position +  Quaternion.AngleAxis(transform.rotation.eulerAngles.y,new Vector3(0,1,0))*new Vector3(-1,0,0)* transform.localScale.x/2;
         targetLoc = transform.position;
         targetSize = transform.localScale.y;
         scoreInterval = targetSize / 2f / numberOfScore;
@@ -54,11 +54,12 @@ public class Target : MonoBehaviour
     
     private IEnumerator ArrowTrigger(Rigidbody2D rb)
     {
+        Vector2 arrowLoc = rb.gameObject.transform.GetChild(0).position;
+        score = CalcScore(arrowLoc);
         yield return new WaitForFixedUpdate(); // 화살이 과녁에 박히는 시간
         rb.velocity = new Vector2(0, 0);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        Vector2 arrowLoc = rb.gameObject.transform.GetChild(0).position;
-        score = CalcScore(arrowLoc);
+        
         ClearStage();
     }
 
@@ -89,9 +90,11 @@ public class Target : MonoBehaviour
     private int CalcScore(Vector2 arrowLoc) // calculate score based on arrow location
     {
         float dist = Vector2.Distance(arrowLoc, baseLocation);
+        /*
         Debug.Log(arrowLoc);
         Debug.Log(baseLocation);
         Debug.Log(Vector2.Distance(arrowLoc, baseLocation));
+        */
         return Mathf.Min(Mathf.Max(-(int)(dist / scoreInterval), -numberOfScore + 1), 0) + numberOfScore;
     }
 }
