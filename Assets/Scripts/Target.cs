@@ -23,8 +23,8 @@ public class Target : MonoBehaviour
     private int arrowCount;         // °ú³á¿¡ ¸ÂÃç¾ßÇÏ´Â È­»ìÀÇ °¹¼ö
     private float scoreInterval;    // additional radius value per score
     private float targetSize;       // size of target based on y value
-    private Vector2 targetLoc;      // location of target
-    private Vector2 baseLocation;   // base location of target which is used to calculate score
+    private Vector2 targetLoc;      // location of target4
+    private Vector2 normalVec;      // Å¸°ÙÀÇ À­¸éÀÇ ¹ý¼±º¤ÅÍ
     private int[] scores;           // scores player get, which dependent on location of arrow
     private float meanScore;        // scoreÀÇ Æò±Õ
     private float timer;            // time since the start of the stage
@@ -35,9 +35,9 @@ public class Target : MonoBehaviour
             return timer;
         }
     }
-    private void Start()
+    private void Start() 
     {
-        baseLocation = transform.position +  Quaternion.AngleAxis(transform.rotation.eulerAngles.z,new Vector3(0,0,1))*new Vector3(-1,0,0)* transform.localScale.x/2;
+        normalVec = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, new Vector2(0, 0)) * new Vector2(0, 1);
         targetLoc = transform.position;
         targetSize = transform.localScale.y;
         scoreInterval = targetSize / 2f / numberOfScore;
@@ -88,11 +88,6 @@ public class Target : MonoBehaviour
         panel.maxScore = numberOfScore;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("TRIGGER!");
-    }
-
     private int CalcNumOfStar() // calculate number of star player get
     {
         int ret = maxStar;
@@ -107,11 +102,10 @@ public class Target : MonoBehaviour
 
     private int CalcScore(Vector2 arrowLoc) // calculate score based on arrow location
     {
-        float dist = Vector2.Distance(arrowLoc, baseLocation);
-        
+        Vector2 dirVec = arrowLoc - (Vector2)transform.position;
+        float dist = Mathf.Abs(Vector2.Dot(dirVec, normalVec));
         Debug.Log(arrowLoc.ToString("F4"));
-        Debug.Log(baseLocation.ToString("F4"));
-        Debug.Log(Vector2.Distance(arrowLoc, baseLocation));
+        Debug.Log(dist.ToString("F4"));
         
         return Mathf.Min(Mathf.Max(-(int)(dist / scoreInterval), -numberOfScore + 1), 0) + numberOfScore;
     }
