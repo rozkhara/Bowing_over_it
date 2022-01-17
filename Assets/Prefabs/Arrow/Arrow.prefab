@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 8
+  drag: 0
   maxDragDist: 2
   minDragDist: 0.2
   releaseTime: 0.17
