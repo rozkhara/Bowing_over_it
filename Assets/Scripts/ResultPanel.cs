@@ -24,11 +24,11 @@ public class ResultPanel : MonoBehaviour
     [HideInInspector]
     public float score;        // Target.cs에서 플레이어 점수 받아옴
     [HideInInspector]
-    public int maxScore;
+    public float maxScore;
     private void Start()
     {
         clearTimeText.text += $"{((int)(clearTime%3600/60)).ToString("D2")}:{((int)(clearTime%60)).ToString("D2")}.{((int)((clearTime-(int)clearTime)*100)).ToString("D2")}";
-        ScoreText.text += $"{score.ToString("F1")} / {maxScore}";
+        ScoreText.text += $"{score.ToString("F1")} / {maxScore.ToString("F1")}";
         showStar();
     }
     private void showStar()
