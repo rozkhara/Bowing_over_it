@@ -38,15 +38,17 @@ public class Arrow : MonoBehaviour
     private int numOfPoints;
 
     private Rigidbody2D rb;
+    private TrailRenderer tr;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tr = GetComponent<TrailRenderer>();
 
         // 쏘기 전 중력 지배 X
         rb.isKinematic = true;
-
-        GetComponent<TrailRenderer>().enabled = false;
+        
+        tr.enabled = false;
 
         originPos = rb.position;
 
@@ -58,7 +60,7 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0) && !isFlying)
         {
@@ -104,25 +106,28 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        tr.enabled = false;
         
         StartCoroutine(ReloadCoroutine());
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        tr.enabled = false;
+
         StartCoroutine(ReloadCoroutine());
     }
 
-    IEnumerator ReloadCoroutine()
+    private IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);
 
         if (--(GameManager.Instance.arrowCount) > 0)
         {
-            var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow");
+            var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow/Arrow");
             nextArrow = Instantiate(arrowPrefab, originPos, Quaternion.identity);
             nextArrow.SetActive(true);
         }
@@ -132,7 +137,7 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    IEnumerator Release()
+    private IEnumerator Release()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 moveVec = (originPos - rb.position) * (force - drag);
@@ -148,10 +153,10 @@ public class Arrow : MonoBehaviour
 
         yield return new WaitForSeconds(releaseTime);
 
-        GetComponent<TrailRenderer>().enabled = true;
+        tr.enabled = true;
     }
 
-    void Aim()
+    private void Aim()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -199,7 +204,7 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    Vector2 PointPosition(float t)
+    private Vector2 PointPosition(float t)
     {
         Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * (force - drag) * t + 0.5f * Physics2D.gravity * (t * t);
         return curPointPos;

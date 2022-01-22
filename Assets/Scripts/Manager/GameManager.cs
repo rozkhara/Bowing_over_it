@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 
     public int arrowCount;
 
-    void Awake()
+    private void Awake()
     {
         Instance = this;
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         Instance = null;
     }
