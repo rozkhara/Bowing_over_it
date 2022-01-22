@@ -68,7 +68,7 @@ public class Arrow : MonoBehaviour
             rb.isKinematic = true;
 
             // 중심 생성
-            var hookPrefab = AssetLoader.LoadPrefab<GameObject>("Hook");
+            var hookPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow/Hook");
             hook = Instantiate(hookPrefab, (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
             hookrb = hook.GetComponent<Rigidbody2D>();
             hooklr = hook.GetComponent<LineRenderer>();
