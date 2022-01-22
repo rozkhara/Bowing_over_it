@@ -106,26 +106,24 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            this.enabled = false;
-
-            StartCoroutine(ReloadCoroutine());
-        }
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        
+        StartCoroutine(ReloadCoroutine());
     }
 
     IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);
-        Destroy(gameObject);
 
-        if (nextArrow != null)
+        if (--(GameManager.Instance.arrowCount) > 0)
         {
+            var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow");
+            nextArrow = Instantiate(arrowPrefab, originPos, Quaternion.identity);
             nextArrow.SetActive(true);
         }
         else
         {
-            SceneManager.LoadScene(0);
+            print("화살을 다 썼습니다!");
         }
     }
 
