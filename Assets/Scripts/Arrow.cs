@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tool;
 using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
@@ -22,11 +23,8 @@ public class Arrow : MonoBehaviour
 
     private Vector2 originPos;
 
-    [SerializeField]
-    private GameObject nextArrow;
+    public GameObject nextArrow;
 
-    [SerializeField]
-    private GameObject hookPrefab;
     private GameObject hook;
     private Rigidbody2D hookrb;
     private LineRenderer hooklr;
@@ -68,6 +66,7 @@ public class Arrow : MonoBehaviour
             rb.isKinematic = true;
 
             // 중심 생성
+            var hookPrefab = AssetLoader.LoadPrefab<GameObject>("Hook");
             hook = Instantiate(hookPrefab, (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
             hookrb = hook.GetComponent<Rigidbody2D>();
             hooklr = hook.GetComponent<LineRenderer>();

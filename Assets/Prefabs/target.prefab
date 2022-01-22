@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1211725878}
   - component: {fileID: 1211725877}
   m_Layer: 0
-  m_Name: Target
+  m_Name: target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,11 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec3bd865049e8e41ae7058230cc7278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultCanvas: {fileID: 4261070052693963230, guid: 9efcac71732c9174c9c1e4a7343f17ae, type: 3}
-  clearTime: 180
-  maxStar: 5
   numberOfScore: 10
-  arrowCount: 1
+  arrowCountOrigin: 1
 --- !u!50 &1211725878
 Rigidbody2D:
   serializedVersion: 4
