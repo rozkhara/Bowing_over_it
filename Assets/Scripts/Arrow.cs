@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Arrow : MonoBehaviour
     private bool isCancelled = false;
 
     private Vector2 originPos;
+
+    [SerializeField]
+    private GameObject nextArrow;
 
     [SerializeField]
     private GameObject hookPrefab;
@@ -58,7 +62,7 @@ public class Arrow : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isFlying)
         {
             isPressed = true;
             rb.isKinematic = true;
@@ -70,7 +74,7 @@ public class Arrow : MonoBehaviour
             hooklr.startWidth = 0.05f;
             hooklr.endWidth = 0.05f;
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !isFlying)
         {
             if (!isCancelled)
             {
@@ -98,6 +102,31 @@ public class Arrow : MonoBehaviour
         {
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x);
             rb.MoveRotation(Quaternion.Euler(new Vector3(0, 0, (angle * 180) / Mathf.PI)));
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            this.enabled = false;
+
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(3.0f);
+        Destroy(gameObject);
+
+        if (nextArrow != null)
+        {
+            nextArrow.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -163,12 +192,12 @@ public class Arrow : MonoBehaviour
             for (int i = 0; i < points.Length; i++)
             {
                 points[i].SetActive(true);
-                points[i].transform.position = PointPosition(i * 0.1f, mousePos);
+                points[i].transform.position = PointPosition(i * 0.1f);
             }
         }
     }
 
-    Vector2 PointPosition(float t, Vector2 mousePos)
+    Vector2 PointPosition(float t)
     {
         Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * (force - drag) * t + 0.5f * Physics2D.gravity * (t * t);
         return curPointPos;

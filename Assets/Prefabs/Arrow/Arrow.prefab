@@ -267,7 +267,7 @@ MonoBehaviour:
   maxDragDist: 2
   minDragDist: 0.2
   releaseTime: 0.17
-  hookPrefab: {fileID: 0}
+  hookPrefab: {fileID: 612732527100745200, guid: a2184fd0d0fc2344ba50e27146dea312, type: 3}
   pointPrefab: {fileID: 3972265904527827930, guid: e4a098b6c0454f6488f4cd0b80ec6c6f, type: 3}
   points: []
   numOfPoints: 20
