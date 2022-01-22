@@ -18,7 +18,11 @@ MonoBehaviour:
   m_GUID: bae6f4864bdff4b4c9af715551429ab0
   m_SerializeEntries:
   - m_GUID: a2184fd0d0fc2344ba50e27146dea312
-    m_Address: Assets/Prefabs/Arrow/Hook.prefab
+    m_Address: Assets/Prefabs/Hook.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0da51b8992952d64d8b9d04642df1c4b
+    m_Address: Assets/Prefabs/Arrow.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
