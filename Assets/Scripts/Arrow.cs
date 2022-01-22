@@ -111,6 +111,11 @@ public class Arrow : MonoBehaviour
         StartCoroutine(ReloadCoroutine());
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        StartCoroutine(ReloadCoroutine());
+    }
+
     IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);

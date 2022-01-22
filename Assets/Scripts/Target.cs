@@ -73,9 +73,6 @@ public class Target : MonoBehaviour
             }
             TargetManager.Instance.Hit(timer, sum / arrowCountOrigin);
         }
-        else
-        {
-        }
     }
 
  
