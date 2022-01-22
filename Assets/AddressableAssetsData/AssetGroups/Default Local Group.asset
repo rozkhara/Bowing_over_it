@@ -18,7 +18,23 @@ MonoBehaviour:
   m_GUID: bae6f4864bdff4b4c9af715551429ab0
   m_SerializeEntries:
   - m_GUID: a2184fd0d0fc2344ba50e27146dea312
-    m_Address: Assets/Prefabs/Arrow/Hook.prefab
+    m_Address: Assets/Prefabs/Hook.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9efcac71732c9174c9c1e4a7343f17ae
+    m_Address: Assets/Prefabs/ResultCanvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff3a639da55faca4a85fa76cd6247e1f
+    m_Address: Assets/Prefabs/forTest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce62a4cf28112964a8ceb4fa93c5a394
+    m_Address: Assets/Prefabs/forTest/emptyStar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f6a4afe93bbb8740ad2dd247ab2eb00
+    m_Address: Assets/Prefabs/forTest/Star.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
