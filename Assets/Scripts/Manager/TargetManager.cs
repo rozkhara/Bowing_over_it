@@ -5,7 +5,6 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
     private float clearTime;        // clear time dependent on level (max time when player can get all star)
-    [SerializeField]
     private GameObject resultCanvas; // 결과창에 사용되는 canvas prefab
     private int maxStar; // 해당 stage의 최대 별 갯수
     private float timer;
@@ -28,6 +27,7 @@ public class TargetManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        resultCanvas = Tool.AssetLoader.LoadPrefab<GameObject>("ResultCanvas");
     }
     void Start()
     {

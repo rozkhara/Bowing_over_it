@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class ResultPanel : MonoBehaviour
 {
-    [SerializeField]
     GameObject emptyStar;    // 빈 별 오브젝트
-    [SerializeField]
     GameObject Star;         // 별 오브젝트
     [SerializeField]
     Text clearTimeText;
@@ -27,6 +25,8 @@ public class ResultPanel : MonoBehaviour
     public float maxScore;
     private void Start()
     {
+        emptyStar = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/emptyStar");
+        Star = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/Star");
         clearTimeText.text += $"{((int)(clearTime%3600/60)).ToString("D2")}:{((int)(clearTime%60)).ToString("D2")}.{((int)((clearTime-(int)clearTime)*100)).ToString("D2")}";
         ScoreText.text += $"{score.ToString("F1")} / {maxScore.ToString("F1")}";
         showStar();
