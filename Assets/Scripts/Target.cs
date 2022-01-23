@@ -13,8 +13,9 @@ public class Target : MonoBehaviour
             return numberOfScore;
         }
     }
+    [Tooltip("과녁에 맞춰야 하는 화살의 개수")]
     [SerializeField]
-    private int arrowCountOrigin;   // 과녁에 맞춰야하는 화살의 갯수
+    private int arrowCountOrigin;
     private int arrowCount;         // 과녁에 맞춰야하는 남은 화살의 갯수
     private float scoreInterval;    // additional radius value per score
     private float targetSize;       // size of target based on y value
