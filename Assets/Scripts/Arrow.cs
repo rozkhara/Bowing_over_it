@@ -165,7 +165,7 @@ public class Arrow : MonoBehaviour
         }
         else
         {
-            print("화살을 다 썼습니다!");
+            Debug.Log("화살을 다 썼습니다!");
         }
 
         this.enabled = false;
@@ -244,7 +244,10 @@ public class Arrow : MonoBehaviour
         return curPointPos;
     }
 
-    public void DestroyObstacle()
+    /// <summary>
+    /// 움직이는 벽에서 분리될 때 호출
+    /// </summary>
+    public void DetachRock()
     {
         transform.SetParent(null);
 

@@ -59,7 +59,7 @@ public class Rock : MonoBehaviour
             {
                 foreach (Arrow arrow in arrows)
                 {
-                    arrow.DestroyObstacle();
+                    arrow.DetachRock();
                 }
 
                 Destroy(gameObject);

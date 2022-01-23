@@ -71,6 +71,7 @@ public class TargetManager : MonoBehaviour
         {
             this.timer = timer;
             meanOfMeanScore /= countOrigin;
+            Time.timeScale = 0f;
             ClearStage();
         }        
     }
