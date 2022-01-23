@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ResultPanel : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class ResultPanel : MonoBehaviour
     public float maxScore;
     private void Start()
     {
+        if (!FindObjectOfType<EventSystem>())
+        {
+            Instantiate(Tool.AssetLoader.LoadPrefab<GameObject>("defaultEventSystem"));
+        }
         emptyStar = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/emptyStar");
         Star = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/Star");
         clearTimeText.text += $"{((int)(clearTime%3600/60)).ToString("D2")}:{((int)(clearTime%60)).ToString("D2")}.{((int)((clearTime-(int)clearTime)*100)).ToString("D2")}";
