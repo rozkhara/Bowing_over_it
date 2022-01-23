@@ -4,15 +4,66 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private Transform startPos;
+    [SerializeField]
+    private Transform endPos;
+    private Transform desPos;
+
+    private int hitCount = 0;
+    [SerializeField]
+    private int maxHitCount;
+
+    private List<Arrow> arrows = new List<Arrow>();
+
+    private Rigidbody2D rb;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        rb.position = startPos.position;
+        desPos = endPos;
+
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
+        rb.MovePosition(Vector2.MoveTowards(rb.position, desPos.position, speed * Time.fixedDeltaTime));
         
+        if (Vector2.Distance(rb.position, desPos.position) <= 0.05f)
+        {
+            if (desPos == startPos)
+            {
+                desPos = endPos;
+            }
+            else
+            {
+                desPos = startPos;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Arrow")
+        {
+            ++hitCount;
+            arrows.Add(collision.gameObject.GetComponent<Arrow>());
+
+            if (hitCount >= maxHitCount)
+            {
+                foreach (Arrow arrow in arrows)
+                {
+                    arrow.DestroyObstacle();
+                }
+
+                Destroy(gameObject);
+            }
+        }
     }
 }
