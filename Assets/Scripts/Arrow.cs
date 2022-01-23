@@ -19,30 +19,29 @@ public class Arrow : MonoBehaviour
 
     private bool isPressed = false;
     private bool isFlying = false;
+    private bool isLanded = false;
     private bool isCancelled = false;
+    private bool isReloaded = false;
 
     private Vector2 originPos;
-
-    public GameObject nextArrow;
 
     private GameObject hook;
     private Rigidbody2D hookrb;
     private LineRenderer hooklr;
 
     // 궤적
-    [SerializeField]
-    private GameObject pointPrefab;
-    [SerializeField]
     private GameObject[] points;
     [SerializeField]
     private int numOfPoints;
 
     private Rigidbody2D rb;
+    private Collider2D col;
     private TrailRenderer tr;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         tr = GetComponent<TrailRenderer>();
 
         // 쏘기 전 중력 지배 X
@@ -55,6 +54,7 @@ public class Arrow : MonoBehaviour
         points = new GameObject[numOfPoints];
         for (int i = 0; i < numOfPoints; i++)
         {
+            var pointPrefab = AssetLoader.LoadPrefab<GameObject>("Point");
             points[i] = Instantiate(pointPrefab, transform.position, Quaternion.identity);
             points[i].SetActive(false);
         }
@@ -62,7 +62,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isFlying)
+        if (Input.GetMouseButtonDown(0) && !isFlying && !isLanded)
         {
             isPressed = true;
             rb.isKinematic = true;
@@ -75,7 +75,7 @@ public class Arrow : MonoBehaviour
             hooklr.startWidth = 0.05f;
             hooklr.endWidth = 0.05f;
         }
-        if (Input.GetMouseButtonUp(0) && !isFlying)
+        if (Input.GetMouseButtonUp(0) && !isFlying && !isLanded)
         {
             if (!isCancelled)
             {
@@ -97,7 +97,10 @@ public class Arrow : MonoBehaviour
         {
             Aim();
         }
+    }
 
+    private void FixedUpdate()
+    {
         // 화살을 진행방향에 맞게 회전
         if (isFlying)
         {
@@ -108,17 +111,47 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        if (!isLanded)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            col.enabled = false;
+        }
+
+        isFlying = false;
+        isLanded = true;
+
         tr.enabled = false;
-        
-        StartCoroutine(ReloadCoroutine());
+
+        if (!isReloaded)
+        {
+            StartCoroutine(ReloadCoroutine());
+            isReloaded = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        isFlying = false;
+        isLanded = true;
+
+        col.enabled = false;
         tr.enabled = false;
 
-        StartCoroutine(ReloadCoroutine());
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            transform.SetParent(collision.transform);
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0f;
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
+        if (!isReloaded)
+        {
+            StartCoroutine(ReloadCoroutine());
+            isReloaded = true;
+        }
     }
 
     private IEnumerator ReloadCoroutine()
@@ -128,13 +161,14 @@ public class Arrow : MonoBehaviour
         if (--(GameManager.Instance.arrowCount) > 0)
         {
             var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow/Arrow");
-            nextArrow = Instantiate(arrowPrefab, originPos, Quaternion.identity);
-            nextArrow.SetActive(true);
+            Instantiate(arrowPrefab, originPos, Quaternion.identity);
         }
         else
         {
             print("화살을 다 썼습니다!");
         }
+
+        this.enabled = false;
     }
 
     private IEnumerator Release()
@@ -208,5 +242,15 @@ public class Arrow : MonoBehaviour
     {
         Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * (force - drag) * t + 0.5f * Physics2D.gravity * (t * t);
         return curPointPos;
+    }
+
+    public void DestroyObstacle()
+    {
+        transform.SetParent(null);
+
+        col.enabled = true;
+        rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.gravityScale = 1f;
     }
 }
