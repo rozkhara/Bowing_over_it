@@ -104,7 +104,6 @@ public class Arrow : MonoBehaviour
         // 화살을 진행방향에 맞게 회전
         if (isFlying)
         {
-            Debug.Log("ISFLYING!");
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x);
             rb.MoveRotation(Quaternion.Euler(new Vector3(0, 0, (angle * 180) / Mathf.PI)));
         }
