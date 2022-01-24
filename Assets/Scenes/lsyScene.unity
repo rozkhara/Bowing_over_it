@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &14397047
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -631,11 +631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 275721152440632393, guid: b26c0d18e8c9fed42a4a36b846f67d32, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523951121259196010, guid: b26c0d18e8c9fed42a4a36b846f67d32, type: 3}
+      propertyPath: gravityDir.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2523951121259196010, guid: b26c0d18e8c9fed42a4a36b846f67d32, type: 3}
       propertyPath: gravityScale
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c0d18e8c9fed42a4a36b846f67d32, type: 3}
@@ -694,6 +698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 8831947590575694355, guid: b290ad8c738f8024289510415473ae5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b290ad8c738f8024289510415473ae5c, type: 3}
 --- !u!1001 &9029265602249821560
@@ -713,11 +721,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -12.05
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_LocalPosition.z
