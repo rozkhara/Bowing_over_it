@@ -131,6 +131,10 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Field")
+        {
+            return;
+        }
         isFlying = false;
         isLanded = true;
 
@@ -224,7 +228,6 @@ public class Arrow : MonoBehaviour
         {
             isCancelled = false;
         }
-
         rb.MoveRotation(Quaternion.LookRotation(originPos - rb.position));
 
         // 취소 안할 시 궤적 생성
