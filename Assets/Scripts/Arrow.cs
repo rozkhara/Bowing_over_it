@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     private Rigidbody2D hookrb;
     private LineRenderer hooklr;
 
-    // ±ËÀû
+    // ê¶¤ì 
     private GameObject[] points;
     [SerializeField]
     private int numOfPoints;
@@ -44,7 +44,7 @@ public class Arrow : MonoBehaviour
         col = GetComponent<Collider2D>();
         tr = GetComponent<TrailRenderer>();
 
-        // ½î±â Àü Áß·Â Áö¹è X
+        // ì˜ê¸° ì „ ì¤‘ë ¥ ì§€ë°° X
         rb.isKinematic = true;
         
         tr.enabled = false;
@@ -67,7 +67,7 @@ public class Arrow : MonoBehaviour
             isPressed = true;
             rb.isKinematic = true;
 
-            // Áß½É »ı¼º
+            // ì¤‘ì‹¬ ìƒì„±
             var hookPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow/Hook");
             hook = Instantiate(hookPrefab, (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
             hookrb = hook.GetComponent<Rigidbody2D>();
@@ -101,7 +101,7 @@ public class Arrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // È­»ìÀ» ÁøÇà¹æÇâ¿¡ ¸Â°Ô È¸Àü
+        // í™”ì‚´ì„ ì§„í–‰ë°©í–¥ì— ë§ê²Œ íšŒì „
         if (isFlying)
         {
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x);
@@ -165,7 +165,7 @@ public class Arrow : MonoBehaviour
         }
         else
         {
-            Debug.Log("È­»ìÀ» ´Ù ½è½À´Ï´Ù!");
+            Debug.Log("í™”ì‚´ì„ ë‹¤ ì¼ìŠµë‹ˆë‹¤!");
         }
 
         this.enabled = false;
@@ -179,7 +179,7 @@ public class Arrow : MonoBehaviour
 
         isFlying = true;
 
-        // ±ËÀû »èÁ¦
+        // ê¶¤ì  ì‚­ì œ
         for (int i = 0; i < points.Length; i++)
         {
             Destroy(points[i]);
@@ -196,7 +196,7 @@ public class Arrow : MonoBehaviour
 
         hooklr.SetPosition(0, hookrb.position);
 
-        // ´ç±æ ¼ö ÀÖ´Â ÃÖ´ë °Å¸® ¼³Á¤
+        // ë‹¹ê¸¸ ìˆ˜ ìˆëŠ” ìµœëŒ€ ê±°ë¦¬ ì„¤ì •
         if (Vector2.Distance(mousePos, hookrb.position) >= maxDragDist)
         {
             rb.MovePosition(originPos + (mousePos - hookrb.position).normalized * maxDragDist);
@@ -208,7 +208,7 @@ public class Arrow : MonoBehaviour
             hooklr.SetPosition(1, mousePos);
         }
 
-        // ´ç±â±â Ãë¼Ò
+        // ë‹¹ê¸°ê¸° ì·¨ì†Œ
         if (Vector2.Distance(mousePos, hookrb.position) <= minDragDist)
         {
             rb.position = originPos;
@@ -227,7 +227,7 @@ public class Arrow : MonoBehaviour
 
         rb.MoveRotation(Quaternion.LookRotation(originPos - rb.position));
 
-        // Ãë¼Ò ¾ÈÇÒ ½Ã ±ËÀû »ı¼º
+        // ì·¨ì†Œ ì•ˆí•  ì‹œ ê¶¤ì  ìƒì„±
         if (!isCancelled)
         {
             for (int i = 0; i < points.Length; i++)
@@ -245,7 +245,7 @@ public class Arrow : MonoBehaviour
     }
 
     /// <summary>
-    /// ¿òÁ÷ÀÌ´Â º®¿¡¼­ ºĞ¸®µÉ ¶§ È£Ãâ
+    /// ì›€ì§ì´ëŠ” ë²½ì—ì„œ ë¶„ë¦¬ë  ë•Œ í˜¸ì¶œ
     /// </summary>
     public void DetachRock()
     {

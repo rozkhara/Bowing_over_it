@@ -1,4 +1,4 @@
-//·¹º§ °£ ºÒ¿¬¼ÓÀû ÀÌµ¿
+//ë ˆë²¨ ê°„ ë¶ˆì—°ì†ì  ì´ë™
 
 using System.Collections;
 using System.Collections.Generic;

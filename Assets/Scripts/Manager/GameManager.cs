@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// »õ·Î¿î ½ºÅ×ÀÌÁö ½ÃÀÛÇÒ ¶§¸¶´Ù È£ÃâÇØÁà¾ßµÇ´Â ¸Ş¼Òµå
-    /// maxStar: ½ºÅ×ÀÌÁö¿¡¼­ È¹µæ °¡´ÉÇÑ ÃÖ´ë º°
-    /// clearTime: ½ºÅ×ÀÌÁö ±âº» Å¬¸®¾î Á¦ÇÑ ½Ã°£
+    /// ìƒˆë¡œìš´ ìŠ¤í…Œì´ì§€ ì‹œì‘í•  ë•Œë§ˆë‹¤ í˜¸ì¶œí•´ì¤˜ì•¼ë˜ëŠ” ë©”ì†Œë“œ
+    /// maxStar: ìŠ¤í…Œì´ì§€ì—ì„œ íšë“ ê°€ëŠ¥í•œ ìµœëŒ€ ë³„
+    /// clearTime: ìŠ¤í…Œì´ì§€ ê¸°ë³¸ í´ë¦¬ì–´ ì œí•œ ì‹œê°„
     /// </summary>
     public void StartNewStage(int maxStar, float clearTime, int arrowCount)
     {

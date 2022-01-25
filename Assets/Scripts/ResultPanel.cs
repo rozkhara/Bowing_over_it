@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ResultPanel : MonoBehaviour
 {
-    GameObject emptyStar;    // ºó º° ¿ÀºêÁ§Æ®
-    GameObject Star;         // º° ¿ÀºêÁ§Æ®
+    GameObject emptyStar;    // ë¹ˆ ë³„ ì˜¤ë¸Œì íŠ¸
+    GameObject Star;         // ë³„ ì˜¤ë¸Œì íŠ¸
     [SerializeField]
     Text clearTimeText;
     [SerializeField]
@@ -15,13 +15,13 @@ public class ResultPanel : MonoBehaviour
     [SerializeField]
     private Transform stars;
     [HideInInspector]
-    public int maxStar;      // Target.cs¿¡¼­ ÃÖ´ë º° °¹¼ö ¹Ş¾Æ¿È
+    public int maxStar;      // Target.csì—ì„œ ìµœëŒ€ ë³„ ê°¯ìˆ˜ ë°›ì•„ì˜´
     [HideInInspector]
-    public int playerStar;   // Target.cs¿¡¼­ ÇÃ·¹ÀÌ¾î°¡ È¹µæÇÑ º° °¹¼ö ¹Ş¾Æ¿È
+    public int playerStar;   // Target.csì—ì„œ í”Œë ˆì´ì–´ê°€ íšë“í•œ ë³„ ê°¯ìˆ˜ ë°›ì•„ì˜´
     [HideInInspector]
-    public float clearTime;  // Target.cs¿¡¼­ Å¬¸®¾î ½Ã°£ ¹Ş¾Æ¿È
+    public float clearTime;  // Target.csì—ì„œ í´ë¦¬ì–´ ì‹œê°„ ë°›ì•„ì˜´
     [HideInInspector]
-    public float score;        // Target.cs¿¡¼­ ÇÃ·¹ÀÌ¾î Á¡¼ö ¹Ş¾Æ¿È
+    public float score;        // Target.csì—ì„œ í”Œë ˆì´ì–´ ì ìˆ˜ ë°›ì•„ì˜´
     [HideInInspector]
     public float maxScore;
     private void Start()
@@ -60,10 +60,10 @@ public class ResultPanel : MonoBehaviour
             starInstances[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(starStartPoint + starInterval * i,0);
         }*/
     }
-    public void ClosePanel()        // PanelÀ» ´İ°í ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀÌµ¿
+    public void ClosePanel()        // Panelì„ ë‹«ê³  ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¡œ ì´ë™
     {
         gameObject.SetActive(false);
-        //´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀÌµ¿Àº Â÷ÈÄ ±¸Çö
+        //ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¡œ ì´ë™ì€ ì°¨í›„ êµ¬í˜„
     }
 
 

@@ -13,15 +13,15 @@ public class Target : MonoBehaviour
             return numberOfScore;
         }
     }
-    [Tooltip("°ú³á¿¡ ¸ÂÃç¾ß ÇÏ´Â È­»ìÀÇ °³¼ö")]
+    [Tooltip("ê³¼ë…ì— ë§ì¶°ì•¼ í•˜ëŠ” í™”ì‚´ì˜ ê°œìˆ˜")]
     [SerializeField]
     private int arrowCountOrigin;
-    private int arrowCount;         // °ú³á¿¡ ¸ÂÃç¾ßÇÏ´Â ³²Àº È­»ìÀÇ °¹¼ö
+    private int arrowCount;         // ê³¼ë…ì— ë§ì¶°ì•¼í•˜ëŠ” ë‚¨ì€ í™”ì‚´ì˜ ê°¯ìˆ˜
     private float scoreInterval;    // additional radius value per score
     private float targetSize;       // size of target based on y value
-    private Vector2 normalVec;      // Å¸°ÙÀÇ À­¸éÀÇ ¹ı¼±º¤ÅÍ
+    private Vector2 normalVec;      // íƒ€ê²Ÿì˜ ìœ—ë©´ì˜ ë²•ì„ ë²¡í„°
     private int[] scores;           // scores player get, which dependent on location of arrow
-    private float meanScore;        // scoreÀÇ Æò±Õ
+    private float meanScore;        // scoreì˜ í‰ê· 
     private float timer;            // time since the start of the stage
     public float Timer
     {
@@ -50,7 +50,7 @@ public class Target : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //arrowÀÇ positionÀÌ È­»ìÃË ³¡ÀÌ¶ó °¡Á¤
+        //arrowì˜ positionì´ í™”ì‚´ì´‰ ëì´ë¼ ê°€ì •
         if (collision.transform.tag == "Arrow")
         {
             StartCoroutine(ArrowTrigger(collision.transform.GetComponent<Rigidbody2D>()));
@@ -62,7 +62,7 @@ public class Target : MonoBehaviour
         Vector2 arrowLoc = rb.gameObject.transform.GetChild(0).position;
         if(arrowCount>0)
             scores[arrowCount-1] = CalcScore(arrowLoc);
-        yield return new WaitForFixedUpdate(); // È­»ìÀÌ °ú³á¿¡ ¹ÚÈ÷´Â ½Ã°£
+        yield return new WaitForFixedUpdate(); // í™”ì‚´ì´ ê³¼ë…ì— ë°•íˆëŠ” ì‹œê°„
         rb.velocity = new Vector2(0, 0);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         if (--arrowCount == 0)

@@ -5,13 +5,13 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
     public float clearTime { get; set; }        // clear time dependent on level (max time when player can get all star)
-    private GameObject resultCanvas; // °á°úÃ¢¿¡ »ç¿ëµÇ´Â canvas prefab
-    public int maxStar { get; set; } // ÇØ´ç stageÀÇ ÃÖ´ë º° °¹¼ö
+    private GameObject resultCanvas; // ê²°ê³¼ì°½ì— ì‚¬ìš©ë˜ëŠ” canvas prefab
+    public int maxStar { get; set; } // í•´ë‹¹ stageì˜ ìµœëŒ€ ë³„ ê°¯ìˆ˜
     private float timer;
-    public float meanOfMeanScore { get; set;  } // °¢ °ú³á¿¡¼­ °è»êµÈ Æò±Õ Á¡¼öÀÇ Æò±Õ
-    public float meanOfMaxScore{ get; set;}// °ú³á ÃÖ´ë Á¡¼öÀÇ Æò±Õ
-    public int count { get; set; } // ÇöÀç±îÁö ³²Àº °ú³á ¼ö
-    public int countOrigin{ get; set; } // ÀûÁßÇØ¾ßÇÏ´Â °ú³á ¼ö
+    public float meanOfMeanScore { get; set;  } // ê° ê³¼ë…ì—ì„œ ê³„ì‚°ëœ í‰ê·  ì ìˆ˜ì˜ í‰ê· 
+    public float meanOfMaxScore{ get; set;}// ê³¼ë… ìµœëŒ€ ì ìˆ˜ì˜ í‰ê· 
+    public int count { get; set; } // í˜„ì¬ê¹Œì§€ ë‚¨ì€ ê³¼ë… ìˆ˜
+    public int countOrigin{ get; set; } // ì ì¤‘í•´ì•¼í•˜ëŠ” ê³¼ë… ìˆ˜
     public static TargetManager Instance
     {
         get;
@@ -35,7 +35,7 @@ public class TargetManager : MonoBehaviour
     }
 
     /// <summary>
-    /// °ú³áº°·Î ¼³Á¤ÇÑ È½¼ö¸¸Å­ È­»ìÀÌ ÀûÁßÇÒ ¶§¸¶´Ù È£ÃâµÊ
+    /// ê³¼ë…ë³„ë¡œ ì„¤ì •í•œ íšŸìˆ˜ë§Œí¼ í™”ì‚´ì´ ì ì¤‘í•  ë•Œë§ˆë‹¤ í˜¸ì¶œë¨
     /// </summary>
     public void Hit(float timer, float meanScore)
     {
@@ -64,7 +64,7 @@ public class TargetManager : MonoBehaviour
     private int CalcNumOfStar() // calculate number of star player get
     {
         int ret = maxStar;
-        //Å¬¸®¾î ½Ã°£ ÃÊ°ú¿¡ µû¸¥ º° °¨Á¡Àº ±âÈ¹ÀÌ ³ª¿Â ÈÄ ±¸Çö
+        //í´ë¦¬ì–´ ì‹œê°„ ì´ˆê³¼ì— ë”°ë¥¸ ë³„ ê°ì ì€ ê¸°íšì´ ë‚˜ì˜¨ í›„ êµ¬í˜„
         if (timer > clearTime)
         {
             ret *= 0;
