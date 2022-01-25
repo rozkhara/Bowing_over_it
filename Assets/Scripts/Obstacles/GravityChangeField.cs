@@ -5,33 +5,29 @@ using UnityEngine;
 public class GravityChangeField : MonoBehaviour
 {
     [SerializeField]
-    Vector2 gravityDir;                 // Áß·ÂÀÇ ¹æÇâ
+    Vector2 gravityDir;                 // ì¤‘ë ¥ì˜ ë°©í–¥
     [SerializeField]
-    private float gravityScale;         // ¹Ù²ãÁÙ Áß·ÂÀÇ °è¼ö
-    private float originGravityScale;   // Áß·ÂÀ» ¿ø·¡´ë·Î µ¹·ÁÁÖ±â À§ÇÑ º¯¼ö
+    private float gravityScale;         // ë°”ê¿”ì¤„ ì¤‘ë ¥ì˜ ê³„ìˆ˜
+    private float originGravityScale;   // ì¤‘ë ¥ì„ ì›ë˜ëŒ€ë¡œ ëŒë ¤ì£¼ê¸° ìœ„í•œ ë³€ìˆ˜
 
     /// <summary>
-    /// È­»ìÀÌ µé¾î¿Ã ¶§ Áß·ÂÀ» ¼³Á¤µÈ °ªÀ¸·Î º¯°æÇÑ´Ù.
+    /// í™”ì‚´ì´ ë“¤ì–´ì˜¬ ë•Œ ì¤‘ë ¥ì„ ì„¤ì •ëœ ê°’ìœ¼ë¡œ ë³€ê²½í•œë‹¤.
     /// </summary>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Arrow")
-        {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            originGravityScale = rb.gravityScale;
-            rb.gravityScale = 0;
-        }
-    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag == "Arrow")
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            if (rb.gravityScale != 0)
+            {
+                originGravityScale = rb.gravityScale;
+                rb.gravityScale = 0;
+            }
             rb.AddForce(gravityDir * gravityScale * Physics2D.gravity.magnitude);
         }
     }
     /// <summary>
-    /// È­»ìÀÌ ³ª°¥ ¶§ Áß·ÂÀ» ¿ø·¡´ë·Î µÇµ¹¸°´Ù.
+    /// í™”ì‚´ì´ ë‚˜ê°ˆ ë•Œ ì¤‘ë ¥ì„ ì›ë˜ëŒ€ë¡œ ë˜ëŒë¦°ë‹¤.
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
