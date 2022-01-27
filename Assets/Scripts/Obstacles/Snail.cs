@@ -88,6 +88,6 @@ public class Snail : MonoBehaviour
             transform.localScale = new Vector3 (-1, 1, 1);
         }
 
-        transform.position += moveVelocity*movePower*Time.daltaTime;
+        transform.position += moveVelocity*movePower*Time.deltaTime;
     }
 }
