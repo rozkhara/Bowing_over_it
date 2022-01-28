@@ -8,10 +8,10 @@ public class TargetManager : MonoBehaviour
     private GameObject resultCanvas; // 결과창에 사용되는 canvas prefab
     public int maxStar { get; set; } // 해당 stage의 최대 별 갯수
     private float timer;
-    public float meanOfMeanScore { get; set;  } // 각 과녁에서 계산된 평균 점수의 평균
-    public float meanOfMaxScore{ get; set;}// 과녁 최대 점수의 평균
+    public float meanOfMeanScore { get; set; } // 각 과녁에서 계산된 평균 점수의 평균
+    public float meanOfMaxScore { get; set; }// 과녁 최대 점수의 평균
     public int count { get; set; } // 현재까지 남은 과녁 수
-    public int countOrigin{ get; set; } // 적중해야하는 과녁 수
+    public int countOrigin { get; set; } // 적중해야하는 과녁 수
     public static TargetManager Instance
     {
         get;
@@ -19,7 +19,7 @@ public class TargetManager : MonoBehaviour
     }
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -40,13 +40,13 @@ public class TargetManager : MonoBehaviour
     public void Hit(float timer, float meanScore)
     {
         meanOfMeanScore += meanScore;
-        if(--count == 0)
+        if (--count == 0)
         {
             this.timer = timer;
             meanOfMeanScore /= countOrigin;
             Time.timeScale = 0f;
             ClearStage();
-        }        
+        }
     }
 
     private void ClearStage() // calculate number of star player get, show stage clear panel

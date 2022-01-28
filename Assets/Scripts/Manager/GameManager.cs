@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         foreach (Target i in targets)
         {
             TargetManager.Instance.meanOfMaxScore += i.MaxScore;
-        } 
+        }
         TargetManager.Instance.meanOfMaxScore /= TargetManager.Instance.countOrigin;
 
         TargetManager.Instance.maxStar = maxStar;

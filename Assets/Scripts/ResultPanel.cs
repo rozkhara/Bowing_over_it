@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ResultPanel : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class ResultPanel : MonoBehaviour
     [SerializeField]
     Text clearTimeText;
     [SerializeField]
-    Text ScoreText; 
+    Text ScoreText;
     [SerializeField]
     private Transform stars;
     [HideInInspector]
@@ -32,18 +33,18 @@ public class ResultPanel : MonoBehaviour
         }
         emptyStar = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/emptyStar");
         Star = Tool.AssetLoader.LoadPrefab<GameObject>("forTest/Star");
-        clearTimeText.text += $"{((int)(clearTime%3600/60)).ToString("D2")}:{((int)(clearTime%60)).ToString("D2")}.{((int)((clearTime-(int)clearTime)*100)).ToString("D2")}";
+        clearTimeText.text += $"{((int)(clearTime % 3600 / 60)).ToString("D2")}:{((int)(clearTime % 60)).ToString("D2")}.{((int)((clearTime - (int)clearTime) * 100)).ToString("D2")}";
         ScoreText.text += $"{score.ToString("F1")} / {maxScore.ToString("F1")}";
         showStar();
     }
     private void showStar()
     {
         RectTransform rt = Star.GetComponent<RectTransform>();
-        float starInterval = rt.rect.width+10;
-        float starStartPoint = maxStar%2 == 0 ? -starInterval*(maxStar/2-0.5f) : -starInterval*(maxStar/2);
+        float starInterval = rt.rect.width + 10;
+        float starStartPoint = maxStar % 2 == 0 ? -starInterval * (maxStar / 2 - 0.5f) : -starInterval * (maxStar / 2);
         int i;
         GameObject starInstance;
-        for(i = 0; i < playerStar; i++)
+        for (i = 0; i < playerStar; i++)
         {
             starInstance = Instantiate(Star, stars);
             starInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(starStartPoint + starInterval * i, 0);
@@ -64,6 +65,7 @@ public class ResultPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
         //다음 스테이지로 이동은 차후 구현
+        SceneManager.LoadScene("LevelSelectionScene");
     }
 
 

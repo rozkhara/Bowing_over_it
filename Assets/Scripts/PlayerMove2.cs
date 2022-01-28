@@ -18,7 +18,8 @@ public class PlayerMove2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.Translate(-dist, 0, 0);
-        }else if (Input.GetKeyDown(KeyCode.RightArrow))
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.Translate(dist, 0, 0);
         }

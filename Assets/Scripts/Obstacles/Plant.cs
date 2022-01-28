@@ -21,22 +21,22 @@ public class Plant : MonoBehaviour
         rb.gravityScale = 0;
         originPos = rb.position;
         acceleration = -speed * speed.magnitude / 2 / height;
-        if(speed.magnitude == 0)
+        if (speed.magnitude == 0)
         {
             Debug.LogError("ERROR: speed of plant is zero");
             gameObject.SetActive(false);
         }
-        movingTime = -2 * (acceleration.x == 0 ? speed.y/acceleration.y : speed.x / acceleration.x);
+        movingTime = -2 * (acceleration.x == 0 ? speed.y / acceleration.y : speed.x / acceleration.x);
     }
     private void FixedUpdate()
     {
         curTime -= Time.fixedDeltaTime;
-        if(curTime <=0)
+        if (curTime <= 0)
         {
             rb.velocity = speed;
             curTime = coolTime + movingTime;
         }
-        if(curTime - coolTime > 0)
+        if (curTime - coolTime > 0)
         {
             rb.AddForce(acceleration * rb.mass);
         }

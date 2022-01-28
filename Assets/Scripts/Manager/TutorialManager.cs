@@ -13,6 +13,8 @@ public class TutorialManager : MonoBehaviour
     private Arrow arrow;
     [SerializeField]
     private Target target;
+    [SerializeField]
+    private GameObject playerSprite;
 
     [SerializeField]
     private float textChangingTime;
@@ -44,6 +46,7 @@ public class TutorialManager : MonoBehaviour
         {
             arrow.gameObject.SetActive(true);
             target.gameObject.SetActive(true);
+            playerSprite.SetActive(true);
             Destroy(tutorialText.gameObject);
 
             GameManager.Instance.gameObject.AddComponent<TargetManager>();

@@ -34,10 +34,10 @@ public class Snail : MonoBehaviour
         prfHpBarBackGround = GameObject.Find("prfHpBarBackGround");
         HpBarBackGround = Instantiate(prfHpBarBackGround, canvas.transform).GetComponent<RectTransform>();
         HpBar = Instantiate(prfHpBar, canvas.transform).GetComponent<RectTransform>();
-        
+
         animator = gameObject.GetComponentInChildren<Animator>();
 
-        StartCoroutine("ChangeMovement");     
+        StartCoroutine("ChangeMovement");
     }
 
     void Update()
@@ -47,7 +47,8 @@ public class Snail : MonoBehaviour
         HpBar.position = _hpBarPos;
         HpBarBackGround.position = _hpBarBackGroundPos;
 
-        if (hp <= 0){
+        if (hp <= 0)
+        {
             Destroy(GameObject.Find("prfHpBar(Clone)"));
             Destroy(GameObject.Find("prfHpBarBackGround(Clone)"));
             Destroy(gameObject);
@@ -58,10 +59,12 @@ public class Snail : MonoBehaviour
     {
         movementFlag = Random.Range(0, 3);
 
-        if(movementFlag == 0){
+        if (movementFlag == 0)
+        {
             animator.SetBool("isMoving", false);
         }
-        else{
+        else
+        {
             animator.SetBool("isMoving", true);
         }
 
@@ -79,15 +82,17 @@ public class Snail : MonoBehaviour
     {
         Vector3 moveVelocity = Vector3.zero;
 
-        if(movementFlag == 1){
+        if (movementFlag == 1)
+        {
             moveVelocity = Vector3.left;
-            transform.localScale = new Vector3 (1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        else if(movementFlag == 2){
+        else if (movementFlag == 2)
+        {
             moveVelocity = Vector3.right;
-            transform.localScale = new Vector3 (-1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        transform.position += moveVelocity*movePower*Time.deltaTime;
+        transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 }

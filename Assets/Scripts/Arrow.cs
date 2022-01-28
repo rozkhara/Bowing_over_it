@@ -46,7 +46,7 @@ public class Arrow : MonoBehaviour
 
         // 쏘기 전 중력 지배 X
         rb.isKinematic = true;
-        
+
         tr.enabled = false;
 
         originPos = rb.position;
@@ -131,7 +131,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Field")
+        if (collision.tag == "Field")
         {
             return;
         }

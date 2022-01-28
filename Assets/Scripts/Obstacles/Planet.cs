@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    private float gravityFieldSize; // Çà¼º Å©±â¸¦ ±âÁØÀ¸·ÎÇÑ Áß·Â ¿µÇâ ¹üÀ§ ( Áß·Â°¡¼Óµµ°¡ 4°¡ µÇ´Â ÁöÁ¡À» °æ°è·Î ÇÔ )
-    private float gravityAcceleration; // a = GM/r^2¿¡¼­ GM/R^2
+    private float gravityFieldSize; // í–‰ì„± í¬ê¸°ë¥¼ ê¸°ì¤€ìœ¼ë¡œí•œ ì¤‘ë ¥ ì˜í–¥ ë²”ìœ„ ( ì¤‘ë ¥ê°€ì†ë„ê°€ 4ê°€ ë˜ëŠ” ì§€ì ì„ ê²½ê³„ë¡œ í•¨ )
+    private float gravityAcceleration; // a = GM/r^2ì—ì„œ GM/R^2
     private float originGravityScale;
     private Rigidbody2D rbPlanet;
-    private const int G = 500; // Áú·® ¼³Á¤¸¦ ÆíÇÏ°Ô ÇÏ±â À§ÇØ G¸¦ 500À¸·Î ¼³Á¤ ( ³ªÁß¿¡ º¯°æ °¡´É )
+    private const int G = 500; // ì§ˆëŸ‰ ì„¤ì •ë¥¼ í¸í•˜ê²Œ í•˜ê¸° ìœ„í•´ Gë¥¼ 500ìœ¼ë¡œ ì„¤ì • ( ë‚˜ì¤‘ì— ë³€ê²½ ê°€ëŠ¥ )
     private void Start()
     {
         rbPlanet = GetComponent<Rigidbody2D>();
-        gravityFieldSize = Mathf.Sqrt(rbPlanet.mass * G/4);
+        gravityFieldSize = Mathf.Sqrt(rbPlanet.mass * G / 4);
         Transform child = transform.GetChild(0);
         child.localScale *= gravityFieldSize / transform.localScale.x;
-        
+
     }
     /// <summary>
-    /// gravityField ³»ºÎ¿¡ À§Ä¡ÇÒ ¶§ Áß·Â ¿µÇâ
+    /// gravityField ë‚´ë¶€ì— ìœ„ì¹˜í•  ë•Œ ì¤‘ë ¥ ì˜í–¥
     /// </summary>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "Arrow")
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            if(rb.gravityScale != 0)
+            if (rb.gravityScale != 0)
             {
                 originGravityScale = rb.gravityScale;
                 rb.gravityScale = 0;
@@ -37,7 +37,7 @@ public class Planet : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "Arrow")
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.gravityScale = originGravityScale;

@@ -30,7 +30,7 @@ public class Target : MonoBehaviour
             return timer;
         }
     }
-    private void Start() 
+    private void Start()
     {
         normalVec = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, new Vector2(0, 0)) * new Vector2(0, 1);
         Vector2 targetLoc = transform.position;
@@ -38,7 +38,7 @@ public class Target : MonoBehaviour
         scoreInterval = targetSize / 2f / numberOfScore;
         scores = new int[arrowCountOrigin];
         arrowCount = arrowCountOrigin;
-        if(arrowCountOrigin == 0)
+        if (arrowCountOrigin == 0)
         {
             Debug.LogError("ERROR: Arrow count of Target is zero");
             gameObject.SetActive(false);
@@ -56,12 +56,12 @@ public class Target : MonoBehaviour
             StartCoroutine(ArrowTrigger(collision.transform.GetComponent<Rigidbody2D>()));
         }
     }
-    
+
     private IEnumerator ArrowTrigger(Rigidbody2D rb)
     {
         Vector2 arrowLoc = rb.gameObject.transform.GetChild(0).position;
-        if(arrowCount>0)
-            scores[arrowCount-1] = CalcScore(arrowLoc);
+        if (arrowCount > 0)
+            scores[arrowCount - 1] = CalcScore(arrowLoc);
         yield return new WaitForFixedUpdate(); // 화살이 과녁에 박히는 시간
         rb.velocity = new Vector2(0, 0);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -76,7 +76,7 @@ public class Target : MonoBehaviour
         }
     }
 
- 
+
 
 
     private int CalcScore(Vector2 arrowLoc) // calculate score based on arrow location
@@ -85,7 +85,7 @@ public class Target : MonoBehaviour
         float dist = Mathf.Abs(Vector2.Dot(dirVec, normalVec));
         Debug.Log(arrowLoc.ToString("F4"));
         Debug.Log(dist.ToString("F4"));
-        
+
         return Mathf.Min(Mathf.Max(-(int)(dist / scoreInterval), -numberOfScore + 1), 0) + numberOfScore;
     }
 }

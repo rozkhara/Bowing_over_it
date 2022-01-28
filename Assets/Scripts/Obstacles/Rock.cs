@@ -34,7 +34,7 @@ public class Rock : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(Vector2.MoveTowards(rb.position, desPos.position, speed * Time.fixedDeltaTime));
-        
+
         if (Vector2.Distance(rb.position, desPos.position) <= 0.05f)
         {
             if (desPos == startPos)
