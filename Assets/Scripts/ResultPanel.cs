@@ -65,6 +65,7 @@ public class ResultPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
         //다음 스테이지로 이동은 차후 구현
+        Time.timeScale = 1f;
         SceneManager.LoadScene("LevelSelectionScene");
     }
 
