@@ -1351,7 +1351,7 @@ MonoBehaviour:
   arrow: {fileID: 734722902}
   target: {fileID: 9847784}
   playerSprite: {fileID: 2050691123}
-  textChangingTime: 1
+  textChangingTime: 3
   texts:
   - "Bowing Over It\uC5D0 \uC624\uC2E0 \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4."
   - "\uC774 \uAC8C\uC784\uC740 \uD654\uC0B4\uC744 \uC3D8\uC544 \uC7A5\uC560\uBB3C\uB4E4\uC744
@@ -1493,12 +1493,24 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9047575
+      value: -6.13
       objectReference: {fileID: 0}
     - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93048304
+      value: -1.99
       objectReference: {fileID: 0}
     - target: {fileID: 1900399252132128710, guid: 08acd9acbf8b36d458d019a5b5105e1d, type: 3}
       propertyPath: m_LocalPosition.z
