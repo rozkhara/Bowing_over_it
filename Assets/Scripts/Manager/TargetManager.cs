@@ -12,6 +12,7 @@ public class TargetManager : MonoBehaviour
     public float meanOfMaxScore { get; set; }// 과녁 최대 점수의 평균
     public int count { get; set; } // 현재까지 남은 과녁 수
     public int countOrigin { get; set; } // 적중해야하는 과녁 수
+    private int bonusStar;
     public static TargetManager Instance
     {
         get;
@@ -31,7 +32,7 @@ public class TargetManager : MonoBehaviour
     }
     void Start()
     {
-        GameManager.Instance.StartNewStage(5, 180, 5); // for test
+        GameManager.Instance.StartNewStage(5,180,5); // for test
     }
 
     /// <summary>
@@ -70,6 +71,13 @@ public class TargetManager : MonoBehaviour
             ret *= 0;
         }
         ret = (int)Mathf.Round(ret * meanOfMeanScore / meanOfMaxScore);
-        return ret;
+        maxStar += bonusStar;
+        return ret + bonusStar;
+    }
+
+    public void GetBonusStar()
+    {
+        Debug.Log("GET BONUS STAR!!");
+        bonusStar++;
     }
 }
