@@ -58,6 +58,8 @@ public class Arrow : MonoBehaviour
             points[i] = Instantiate(pointPrefab, transform.position, Quaternion.identity);
             points[i].SetActive(false);
         }
+
+        ObstacleManager.Instance.sun.arrow = this;
     }
 
     private void Update()
@@ -75,7 +77,8 @@ public class Arrow : MonoBehaviour
             hooklr.startWidth = 0.05f;
             hooklr.endWidth = 0.05f;
         }
-        if (Input.GetMouseButtonUp(0) && !isFlying && !isLanded)
+
+        if (Input.GetMouseButtonUp(0) && isPressed && !isFlying && !isLanded)
         {
             if (!isCancelled)
             {
@@ -126,6 +129,7 @@ public class Arrow : MonoBehaviour
         {
             StartCoroutine(ReloadCoroutine());
             isReloaded = true;
+            this.enabled = false;
         }
     }
 
@@ -135,6 +139,7 @@ public class Arrow : MonoBehaviour
         {
             return;
         }
+
         isFlying = false;
         isLanded = true;
 
@@ -155,10 +160,11 @@ public class Arrow : MonoBehaviour
         {
             StartCoroutine(ReloadCoroutine());
             isReloaded = true;
+            this.enabled = false;
         }
     }
 
-    private IEnumerator ReloadCoroutine()
+    public IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);
 
@@ -172,7 +178,7 @@ public class Arrow : MonoBehaviour
             Debug.Log("화살을 다 썼습니다!");
         }
 
-        this.enabled = false;
+        // this.enabled = false;
     }
 
     private IEnumerator Release()

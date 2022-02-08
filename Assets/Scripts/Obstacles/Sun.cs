@@ -7,14 +7,15 @@ public class Sun : MonoBehaviour
     [SerializeField]
     private float range;
 
-    [SerializeField]
-    private GameObject arrow;
+    [HideInInspector]
+    public Arrow arrow;
 
     private void Update()
     {
-        if (Vector2.Distance(arrow.transform.position, transform.position) <= range)
+        if (arrow != null && Vector2.Distance(arrow.transform.position, transform.position) <= range)
         {
-            arrow.SetActive(false);
+            StartCoroutine(arrow.ReloadCoroutine());
+            Destroy(arrow.gameObject);
         }
     }
 }
