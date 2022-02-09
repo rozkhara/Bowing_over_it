@@ -6,7 +6,8 @@ public class ObstacleManager : MonoBehaviour
 {
     public static ObstacleManager Instance { get; private set; }
 
-    public Sun sun;
+    public Sun[] suns;
+    public Monster[] monsters;
 
     private void Awake()
     {

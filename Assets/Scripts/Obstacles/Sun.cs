@@ -12,7 +12,7 @@ public class Sun : MonoBehaviour
 
     private void Update()
     {
-        if (arrow != null && Vector2.Distance(arrow.transform.position, transform.position) <= range)
+        if (arrow != null && Vector2.Distance(arrow.rb.position, transform.position) <= range)
         {
             StartCoroutine(arrow.ReloadCoroutine());
             Destroy(arrow.gameObject);
