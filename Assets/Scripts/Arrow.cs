@@ -34,7 +34,8 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private int numOfPoints;
 
-    private Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
     private Collider2D col;
     private TrailRenderer tr;
 
@@ -59,7 +60,15 @@ public class Arrow : MonoBehaviour
             points[i].SetActive(false);
         }
 
-        ObstacleManager.Instance.sun.arrow = this;
+        // 장애물에 arrow 대입
+        for (int i = 0; i < ObstacleManager.Instance.suns.Length; i++)
+        {
+            ObstacleManager.Instance.suns[i].arrow = this;
+        }
+        for (int i = 0; i < ObstacleManager.Instance.monsters.Length; i++)
+        {
+            ObstacleManager.Instance.monsters[i].arrow = this;
+        }
     }
 
     private void Update()
