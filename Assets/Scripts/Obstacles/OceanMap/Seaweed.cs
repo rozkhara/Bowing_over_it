@@ -9,6 +9,10 @@ public class Seaweed : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    /// <summary>
+    /// 속도가 점점 줄어들며 일정 이하가 되면 해초에 묶임
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Arrow")
@@ -16,16 +20,18 @@ public class Seaweed : MonoBehaviour
 
             Rigidbody2D arrow = collision.GetComponent<Rigidbody2D>();
             rb.velocity = arrow.velocity / 2;
-            StartCoroutine(Bind(arrow));
+            arrow.velocity /= 1.1f;
+            Debug.Log(arrow.velocity.magnitude);
+            if (arrow.velocity.magnitude < 3f)
+                Bind(arrow);
         }
     }
     /// <summary>
-    /// 0.4초 후 해초에 묶이는 루틴
+    /// 화살이 묶이는 루틴
     /// </summary>
     /// <returns></returns>
-    private IEnumerator Bind(Rigidbody2D arrow)
+    private void Bind(Rigidbody2D arrow)
     {
-        yield return new WaitForSeconds(0.4f);
         arrow.constraints = RigidbodyConstraints2D.FreezeAll;
         arrow.transform.SetParent(transform, true);
         arrow.GetComponent<Arrow>().Reload();

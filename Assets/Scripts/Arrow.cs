@@ -17,6 +17,8 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private float releaseTime;
 
+    public bool isFrozen = false;
+
     private bool isPressed = false;
     private bool isFlying = false;
     private bool isLanded = false;
@@ -114,7 +116,7 @@ public class Arrow : MonoBehaviour
     private void FixedUpdate()
     {
         // 화살을 진행방향에 맞게 회전
-        if (isFlying)
+        if (isFlying && !isFrozen)
         {
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x);
             rb.MoveRotation(Quaternion.Euler(new Vector3(0, 0, (angle * 180) / Mathf.PI)));
