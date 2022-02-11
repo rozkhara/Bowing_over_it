@@ -165,6 +165,12 @@ public class Arrow : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
+
+        Reload();
+    }
+
+    public void Reload()
+    {
         if (!isReloaded)
         {
             StartCoroutine(ReloadCoroutine());
