@@ -80,4 +80,9 @@ public class TargetManager : MonoBehaviour
         Debug.Log("GET BONUS STAR!!");
         bonusStar++;
     }
+
+    public void StarStolen()
+    {
+        Debug.Log("별을 도둑질 당했다!");
+    }
 }

@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arrow
-  - Obstacle
   - Field
+  - Rock
   layers:
   - Default
   - TransparentFX
