@@ -161,7 +161,7 @@ public class Arrow : MonoBehaviour
         col.enabled = false;
         tr.enabled = false;
 
-        if (collision.gameObject.tag == "Rock")
+        if (collision.gameObject.tag == "Rock" || collision.gameObject.tag == "Obstacle")
         {
             transform.SetParent(collision.transform);
             rb.velocity = Vector2.zero;
