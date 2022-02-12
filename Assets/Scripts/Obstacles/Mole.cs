@@ -10,6 +10,11 @@ public class Mole : MonoBehaviour
     [SerializeField]
     private float waitTime;
 
+    [HideInInspector]
+    public Arrow arrow;
+
+    private Coroutine spawnCoroutine;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
@@ -20,7 +25,7 @@ public class Mole : MonoBehaviour
 
         sr.enabled = false;
 
-        StartCoroutine(SpawnCoroutine());
+        spawnCoroutine = StartCoroutine(SpawnCoroutine());
     }
 
     private IEnumerator SpawnCoroutine()
@@ -58,15 +63,22 @@ public class Mole : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Arrow"))
         {
-            StartCoroutine(DestroyCoroutine(collision.gameObject));
+            StartCoroutine(DestroyCoroutine());
         }
     }
 
-    private IEnumerator DestroyCoroutine(GameObject arrow)
+    private IEnumerator DestroyCoroutine()
     {
         yield return new WaitForEndOfFrame();
 
-        Destroy(arrow);
+        sr.enabled = false;
+
+        StopCoroutine(spawnCoroutine);
+
+        Destroy(arrow.gameObject);
+
+        yield return StartCoroutine(arrow.ReloadCoroutine());
+
         Destroy(gameObject);
     }
 }

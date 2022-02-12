@@ -71,6 +71,10 @@ public class Arrow : MonoBehaviour
         {
             ObstacleManager.Instance.monsters[i].arrow = this;
         }
+        for (int i = 0; i < ObstacleManager.Instance.moles.Length; i++)
+        {
+            ObstacleManager.Instance.moles[i].arrow = this;
+        }
     }
 
     private void Update()
@@ -181,6 +185,9 @@ public class Arrow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 재장전
+    /// </summary>
     public IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);
