@@ -36,5 +36,6 @@ public class Seaweed : MonoBehaviour
         arrow.transform.SetParent(transform, true);
         arrow.GetComponent<Arrow>().Reload();
         arrow.isKinematic = true;
+        arrow.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
