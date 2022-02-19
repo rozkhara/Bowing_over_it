@@ -10,6 +10,7 @@ TagManager:
   - Obstacle
   - Rock
   - StoneArrow
+  - ExplosiveArrow
   layers:
   - Default
   - TransparentFX
