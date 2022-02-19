@@ -17,11 +17,12 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private float releaseTime;
 
+    [HideInInspector]
     public bool isFrozen = false;
 
     private bool isPressed = false;
-    private bool isFlying = false;
-    private bool isLanded = false;
+    protected bool isFlying = false;
+    protected bool isLanded = false;
     private bool isCancelled = false;
     private bool isReloaded = false;
 
@@ -38,8 +39,8 @@ public class Arrow : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody2D rb;
-    private Collider2D col;
-    private TrailRenderer tr;
+    protected Collider2D col;
+    protected TrailRenderer tr;
 
     private void Start()
     {
@@ -140,12 +141,7 @@ public class Arrow : MonoBehaviour
 
         tr.enabled = false;
 
-        if (!isReloaded)
-        {
-            StartCoroutine(ReloadCoroutine());
-            isReloaded = true;
-            this.enabled = false;
-        }
+        Reload();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -170,7 +166,6 @@ public class Arrow : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-
 
         Reload();
     }
