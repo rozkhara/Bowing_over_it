@@ -53,6 +53,10 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Arrows/StoneArrow.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 2657612dc4759df47b4cfbdb6957cdee
+    m_Address: Assets/Prefabs/Arrows/ExplosiveArrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8dc5ac8f545d55b43b27a4e385d911ac, type: 2}
   m_SchemaSet:
