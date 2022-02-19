@@ -6,24 +6,26 @@ public class Snail : MonoBehaviour
 {
     public float hp;
     public float speed;
+
     private float pos;
-    // Start is called before the first frame update
-    void Start()
+
+    private List<Arrow> arrows = new List<Arrow>();
+
+    private void Start()
     {
-        Debug.Log("hp :" + hp);
         pos = transform.position.x;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Move();
     }
 
-    void TakeDamage(int damage)
+    private void TakeDamage(float damage)
     {
         hp -= damage;
-        if(hp <= 0)
+
+        if (hp <= 0)
         {
             Die();
         }
@@ -34,32 +36,48 @@ public class Snail : MonoBehaviour
         return hp;
     }
 
-    public void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        TakeDamage(10);
-        Debug.Log("hp :" + hp);
+        if (collision.gameObject.name == "StoneArrow")
+        {
+            TakeDamage(GetHp());
+        }
+        else
+        {
+            arrows.Add(collision.gameObject.GetComponent<Arrow>());
+
+            TakeDamage(10);
+        }
     }
 
-     void Die()
-     {
-        Destroy(this.gameObject);
-     }
+    private void Die()
+    {
+        foreach (Arrow arrow in arrows)
+        {
+            arrow.DetachRock();
+        }
 
-     void Move()
-     {
+        Destroy(gameObject);
+    }
+
+    private void Move()
+    {
         float rightMax = 2.0f;
         float leftMax = -2.0f;
+
         pos += Time.deltaTime * speed;
-        if(pos >= rightMax)
+
+        if (pos >= rightMax)
         {
             speed *= -1;
             pos = rightMax;
         }
-        else if(pos <= leftMax)
+        else if (pos <= leftMax)
         {
             speed *= -1;
             pos = leftMax;
         }
-        transform.position = new Vector3(pos, 0, 0);
-     }
+
+        transform.position = new Vector3(pos, transform.position.y, 0);
+    }
 }

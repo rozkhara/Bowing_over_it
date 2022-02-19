@@ -7,6 +7,9 @@ TagManager:
   - Arrow
   - Field
   - Floor
+  - Obstacle
+  - Rock
+  - StoneArrow
   layers:
   - Default
   - TransparentFX
