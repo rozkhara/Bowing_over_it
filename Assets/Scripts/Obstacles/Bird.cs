@@ -48,10 +48,7 @@ public class Bird : MonoBehaviour
         if (collision.tag == "Arrow")
         {
             arrows.Add(collision.gameObject.GetComponent<Arrow>());
-            foreach (Arrow arrow in arrows)
-            {
-                arrow.DetachRock();
-            }
+
             Destroy(gameObject);
         }
     }

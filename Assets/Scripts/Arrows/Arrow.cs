@@ -16,16 +16,19 @@ public class Arrow : MonoBehaviour
     private float minDragDist;
     [SerializeField]
     private float releaseTime;
-
+    [HideInInspector]
+    public bool isClone = false;
+    [HideInInspector]
     public bool isFrozen = false;
-
-    private bool isPressed = false;
-    private bool isFlying = false;
-    private bool isLanded = false;
+    [HideInInspector]
+    public bool isPressed = false;
+    [HideInInspector]
+    public bool isFlying = false;
+    protected bool isLanded = false;
     private bool isCancelled = false;
     private bool isReloaded = false;
 
-    private Vector2 originPos;
+    protected Vector2 originPos;
 
     private GameObject hook;
     private Rigidbody2D hookrb;
@@ -38,22 +41,22 @@ public class Arrow : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody2D rb;
-    private Collider2D col;
-    private TrailRenderer tr;
-
-    private void Start()
+    protected Collider2D col;
+    [HideInInspector]
+    public TrailRenderer tr;
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         tr = GetComponent<TrailRenderer>();
-
         // 쏘기 전 중력 지배 X
         rb.isKinematic = true;
-
         tr.enabled = false;
-
         originPos = rb.position;
-
+        if (isClone)
+        {
+            return;
+        }
         points = new GameObject[numOfPoints];
         for (int i = 0; i < numOfPoints; i++)
         {
@@ -61,6 +64,9 @@ public class Arrow : MonoBehaviour
             points[i] = Instantiate(pointPrefab, transform.position, Quaternion.identity);
             points[i].SetActive(false);
         }
+    }
+    protected void Start()
+    {
 
         // 장애물에 arrow 대입
         for (int i = 0; i < ObstacleManager.Instance.suns.Length; i++)
@@ -77,7 +83,7 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected void Update()
     {
         if (Input.GetMouseButtonDown(0) && !isFlying && !isLanded)
         {
@@ -140,12 +146,7 @@ public class Arrow : MonoBehaviour
 
         tr.enabled = false;
 
-        if (!isReloaded)
-        {
-            StartCoroutine(ReloadCoroutine());
-            isReloaded = true;
-            this.enabled = false;
-        }
+        Reload();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -171,13 +172,12 @@ public class Arrow : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-
         Reload();
     }
 
     public void Reload()
     {
-        if (!isReloaded)
+        if (!isClone && !isReloaded)
         {
             StartCoroutine(ReloadCoroutine());
             isReloaded = true;
@@ -205,14 +205,18 @@ public class Arrow : MonoBehaviour
         // this.enabled = false;
     }
 
-    private IEnumerator Release()
+    protected virtual IEnumerator Release()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 moveVec = (originPos - rb.position) * (force - drag);
         rb.velocity = moveVec;
 
         isFlying = true;
-
+        tr.enabled = true;
+        if (isClone)
+        {
+            yield break;
+        }
         // 궤적 삭제
         for (int i = 0; i < points.Length; i++)
         {
@@ -221,7 +225,6 @@ public class Arrow : MonoBehaviour
 
         yield return new WaitForSeconds(releaseTime);
 
-        tr.enabled = true;
     }
 
     private void Aim()

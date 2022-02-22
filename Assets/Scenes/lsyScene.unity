@@ -992,7 +992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238946224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36, y: -2.2, z: 0}
+  m_LocalPosition: {x: 21, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 70, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1406,6 +1406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 921445758799416688, guid: 96e6440080580f74cb362f4a9fe90fda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 921445758799416693, guid: 96e6440080580f74cb362f4a9fe90fda, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1528,6 +1532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cloud
       objectReference: {fileID: 0}
+    - target: {fileID: 3689097398660138121, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -1574,6 +1582,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
+--- !u!1001 &4560113535061790711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 142864912086260935, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_Name
+      value: TeleportArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937453441000557428, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f80dec93762d1f449c2b46267ae44a3, type: 3}
 --- !u!1001 &4619657859053239015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1759,6 +1824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seaweed
       objectReference: {fileID: 0}
+    - target: {fileID: 8424500827674544401, guid: eef753ff0092c764bbbc90a1ad5de4b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eef753ff0092c764bbbc90a1ad5de4b0, type: 3}
 --- !u!1001 &8831947591492265642
@@ -1832,6 +1901,10 @@ PrefabInstance:
     - target: {fileID: 2744137977398234646, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744137977398234646, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_RootOrder
