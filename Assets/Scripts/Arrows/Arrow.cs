@@ -16,14 +16,11 @@ public class Arrow : MonoBehaviour
     private float minDragDist;
     [SerializeField]
     private float releaseTime;
-    [HideInInspector]
-    public bool isClone = false;
-    [HideInInspector]
-    public bool isFrozen = false;
-    [HideInInspector]
-    public bool isPressed = false;
-    [HideInInspector]
-    public bool isFlying = false;
+
+    public bool isClone { get; set; }
+    public bool isFrozen { get; set; }
+    public bool isPressed { get; set; }
+    public bool isFlying { get; set; }
     protected bool isLanded = false;
     private bool isCancelled = false;
     private bool isReloaded = false;
@@ -39,25 +36,33 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private int numOfPoints;
 
-    [HideInInspector]
-    public Rigidbody2D rb;
+    public Rigidbody2D rb { get; set; }
     protected Collider2D col;
-    [HideInInspector]
-    public TrailRenderer tr;
+    public TrailRenderer tr { get; set; }
+
     protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         tr = GetComponent<TrailRenderer>();
+
+        isClone = false;
+        isFrozen = false;
+        isPressed = false;
+        isFlying = false;
+
         // 쏘기 전 중력 지배 X
         rb.isKinematic = true;
         tr.enabled = false;
         originPos = rb.position;
+
         if (isClone)
         {
             return;
         }
+
         points = new GameObject[numOfPoints];
+
         for (int i = 0; i < numOfPoints; i++)
         {
             var pointPrefab = AssetLoader.LoadPrefab<GameObject>("Point");
@@ -65,9 +70,9 @@ public class Arrow : MonoBehaviour
             points[i].SetActive(false);
         }
     }
+
     protected void Start()
     {
-
         // 장애물에 arrow 대입
         for (int i = 0; i < ObstacleManager.Instance.suns.Length; i++)
         {
@@ -213,10 +218,12 @@ public class Arrow : MonoBehaviour
 
         isFlying = true;
         tr.enabled = true;
+
         if (isClone)
         {
             yield break;
         }
+
         // 궤적 삭제
         for (int i = 0; i < points.Length; i++)
         {
@@ -261,6 +268,7 @@ public class Arrow : MonoBehaviour
         {
             isCancelled = false;
         }
+
         rb.MoveRotation(Quaternion.LookRotation(originPos - rb.position));
 
         // 취소 안할 시 궤적 생성
