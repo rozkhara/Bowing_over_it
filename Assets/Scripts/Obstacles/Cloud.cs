@@ -11,7 +11,9 @@ public class Cloud : MonoBehaviour
     /// </summary>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             time += Time.fixedDeltaTime;
             Debug.Log(time);
@@ -22,9 +24,12 @@ public class Cloud : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             time = 0f;
         }

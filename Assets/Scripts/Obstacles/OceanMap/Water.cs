@@ -11,16 +11,22 @@ public class Water : MonoBehaviour
     Rigidbody2D rb;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
+        {
             rb = collision.GetComponent<Rigidbody2D>();
-        rb.gravityScale = 1 - density;
+            rb.gravityScale = 1 - density;
+        }
     }
     /// <summary>
     /// 물 속에서 이동하는 화살에 항력 적용
     /// </summary>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             rb.AddForce(rb.velocity * rb.velocity.magnitude * -1 * drag * density/10f);
         }

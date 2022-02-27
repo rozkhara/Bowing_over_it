@@ -15,7 +15,9 @@ public class GravityChangeField : MonoBehaviour
     /// </summary>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             if (rb.gravityScale != 0)
@@ -31,7 +33,9 @@ public class GravityChangeField : MonoBehaviour
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             collision.GetComponent<Rigidbody2D>().gravityScale = originGravityScale;
         }

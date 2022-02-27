@@ -47,7 +47,7 @@ public class BurningRing : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag=="Arrow")
+        if(collision.tag.Contains("Arrow"))
             TargetManager.Instance.GetBonusStar();
     }
 }
