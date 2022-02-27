@@ -30,8 +30,12 @@ public class Target : MonoBehaviour
             return timer;
         }
     }
+    private Rigidbody2D rb;
+
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
         normalVec = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, new Vector2(0, 0)) * new Vector2(0, 1);
         Vector2 targetLoc = transform.position;
         targetSize = transform.localScale.y;
