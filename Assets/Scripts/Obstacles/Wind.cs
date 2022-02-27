@@ -10,7 +10,9 @@ public class Wind : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * windforce * Physics2D.gravity.magnitude * 0.5f);

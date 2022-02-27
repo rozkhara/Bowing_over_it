@@ -45,7 +45,7 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag.Contains("Arrow"))
         {
             arrows.Add(collision.gameObject.GetComponent<Arrow>());
 

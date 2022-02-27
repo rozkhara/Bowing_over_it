@@ -22,7 +22,9 @@ public class Planet : MonoBehaviour
     /// </summary>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             if (rb.gravityScale != 0)
@@ -37,7 +39,9 @@ public class Planet : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag == "UnstoppedArrow") return;
+
+        if (collision.tag.Contains("Arrow"))
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.gravityScale = originGravityScale;
