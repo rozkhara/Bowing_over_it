@@ -11,6 +11,7 @@ TagManager:
   - Rock
   - StoneArrow
   - ExplosiveArrow
+  - UnstoppedArrow
   layers:
   - Default
   - TransparentFX
