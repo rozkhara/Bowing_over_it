@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public int arrowCount;
+    public int stoneArrowCount;
 
     private void Awake()
     {

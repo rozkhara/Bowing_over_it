@@ -77,7 +77,7 @@ public class Mole : MonoBehaviour
 
         Destroy(arrow.gameObject);
 
-        yield return StartCoroutine(arrow.ReloadCoroutine());
+        // yield return StartCoroutine(arrow.ReloadCoroutine());
 
         Destroy(gameObject);
     }
