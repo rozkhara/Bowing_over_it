@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour
 
             if (Vector2.Distance(arrow.rb.position, transform.position) <= 0.05f)
             {
-                StartCoroutine(arrow.ReloadCoroutine());
+                // StartCoroutine(arrow.ReloadCoroutine());
                 Destroy(arrow.gameObject);
             }
         }
