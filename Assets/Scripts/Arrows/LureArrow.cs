@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class LureArrow : Arrow
 {
-    private List<Pig> pigs = new List<Pig>();
+
+    public bool isRun = false;
+    private new void Start()
+    {
+        base.Start();
+        for (int i = 0; i < ObstacleManager.Instance.pigs.Length; i++)
+        {
+            ObstacleManager.Instance.pigs[i].lurearrow = this;
+        }
+    }
     private new void Update()
     {
         base.Update();
-        if (isLanded == true)
-        {
-            foreach (Pig pig in pigs)
-            {
-                pig.RunToFeed();
-            }
-            
-        }
+        isRun = isLanded;
     }
+
 }

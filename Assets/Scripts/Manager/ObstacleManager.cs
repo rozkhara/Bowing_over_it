@@ -9,6 +9,7 @@ public class ObstacleManager : MonoBehaviour
     public Sun[] suns;
     public Monster[] monsters;
     public Mole[] moles;
+    public Pig[] pigs;
 
     private void Awake()
     {

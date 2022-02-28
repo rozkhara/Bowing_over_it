@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TargetManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class TargetManager : MonoBehaviour
     public int count { get; set; } // 현재까지 남은 과녁 수
     public int countOrigin { get; set; } // 적중해야하는 과녁 수
     private int bonusStar;
+    Scene scene = SceneManager.GetActiveScene();
     public static TargetManager Instance
     {
         get;
@@ -60,6 +62,7 @@ public class TargetManager : MonoBehaviour
         panel.clearTime = timer;
         panel.score = meanOfMeanScore;
         panel.maxScore = meanOfMaxScore;
+        PlayerPrefs.SetInt(scene.name + "stars", star);
     }
 
     private int CalcNumOfStar() // calculate number of star player get
