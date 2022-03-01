@@ -34,7 +34,7 @@ public class Seaweed : MonoBehaviour
     {
         arrow.constraints = RigidbodyConstraints2D.FreezeAll;
         arrow.transform.SetParent(transform, true);
-        arrow.GetComponent<Arrow>().Reload();
+        // arrow.GetComponent<Arrow>().Reload();
         arrow.isKinematic = true;
         arrow.GetComponent<BoxCollider2D>().enabled = false;
     }

@@ -21,9 +21,9 @@ public class Arrow : MonoBehaviour
     public bool isFrozen { get; set; }
     public bool isPressed { get; set; }
     public bool isFlying { get; set; }
-    protected bool isLanded = false;
-    private bool isCancelled = false;
-    private bool isReloaded = false;
+    public bool isLanded { get; set; }
+    private bool isCancelled;
+    // private bool isReloaded = false;
 
     protected Vector2 originPos;
 
@@ -50,6 +50,8 @@ public class Arrow : MonoBehaviour
         isFrozen = false;
         isPressed = false;
         isFlying = false;
+        isLanded = false;
+        isCancelled = false;
 
         // 쏘기 전 중력 지배 X
         rb.isKinematic = true;
@@ -151,7 +153,7 @@ public class Arrow : MonoBehaviour
 
         tr.enabled = false;
 
-        Reload();
+        // Reload();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -177,9 +179,10 @@ public class Arrow : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        Reload();
+        // Reload();
     }
 
+    /*
     public void Reload()
     {
         if (!isClone && !isReloaded)
@@ -189,17 +192,21 @@ public class Arrow : MonoBehaviour
             this.enabled = false;
         }
     }
+    */
 
     /// <summary>
     /// 재장전
     /// </summary>
+    /// 
+
+    /*
     public IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(3.0f);
 
         if (--(GameManager.Instance.arrowCount) > 0)
         {
-            var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrow/Arrow");
+            var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/Arrow");
             Instantiate(arrowPrefab, originPos, Quaternion.identity);
         }
         else
@@ -209,6 +216,7 @@ public class Arrow : MonoBehaviour
 
         // this.enabled = false;
     }
+    */
 
     protected virtual IEnumerator Release()
     {

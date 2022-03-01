@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public int arrowCount;
+    public int stoneArrowCount;
+    public int explosiveArrowCount;
+    public int warpArrowCount;
+    public int lureArrowCount;
+    public int tripleArrowCount;
 
     private void Awake()
     {
