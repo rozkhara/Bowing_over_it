@@ -23,12 +23,3 @@ public class Save_Load : MonoBehaviour
         gameData = JsonUtility.FromJson<GameData>(jsonData);
     }
 }
-
-[System.Serializable]
-public class GameData
-{
-    public string name;
-    public int level;
-    public int star;
-    public string[] items;
-}
