@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 
     public int arrowCount;
     public int stoneArrowCount;
+    public int explosiveArrowCount;
+    public int warpArrowCount;
+    public int lureArrowCount;
+    public int tripleArrowCount;
 
     private void Awake()
     {
