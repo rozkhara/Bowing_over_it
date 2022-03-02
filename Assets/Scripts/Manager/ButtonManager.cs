@@ -10,10 +10,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.arrowCount) >= 0)
         {
             var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/Arrow");
             Instantiate(arrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
@@ -23,10 +26,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadStoneArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.stoneArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/StoneArrow");
             Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
@@ -36,10 +42,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadExplosiveArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.explosiveArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/ExplosiveArrow");
             Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
@@ -49,10 +58,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadWarpArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.warpArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/WarpArrow");
             Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
@@ -62,10 +74,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadLureArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.lureArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/LureArrow");
             Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
@@ -75,10 +90,13 @@ public class ButtonManager : MonoBehaviour
 
     public void ReloadTripleArrow()
     {
+        if (Arrow.isReloaded) return;
+
         if (--(GameManager.Instance.tripleArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/TripleArrow");
             Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            Arrow.isReloaded = true;
         }
         else
         {
