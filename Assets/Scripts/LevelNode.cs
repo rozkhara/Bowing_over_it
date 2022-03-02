@@ -7,7 +7,7 @@ public class LevelNode : MonoBehaviour
 {
     public GameObject emptyStar;
     public GameObject Star;
-    public SpriteRenderer renderer;
+    public SpriteRenderer sr;
     public LevelNode upNode;
     public LevelNode downNode;
     public LevelNode leftNode;
@@ -23,7 +23,7 @@ public class LevelNode : MonoBehaviour
     private void Start()
     {
         sceneName = this.gameObject.name;
-        renderer = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
         isTriggerStay = false;
         LoadLevelNode();
         starCount = PlayerPrefs.GetInt(sceneName + "stars");
@@ -57,12 +57,12 @@ public class LevelNode : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(sceneName + "stars")&&PlayerPrefs.GetInt(sceneName+"stars")>0)
         {
-            renderer.color = new Color(0, 255, 0, 1);
+            sr.color = new Color(0, 255, 0, 1);
         }
         else
         {
             PlayerPrefs.SetInt(sceneName + "stars", 0);
-            renderer.color = new Color(255, 0, 0, 1);
+            sr.color = new Color(255, 0, 0, 1);
         }
         
     }
