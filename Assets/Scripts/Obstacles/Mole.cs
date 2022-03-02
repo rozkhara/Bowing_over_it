@@ -10,8 +10,7 @@ public class Mole : MonoBehaviour
     [SerializeField]
     private float waitTime;
 
-    [HideInInspector]
-    public Arrow arrow;
+    public Arrow arrow { get; set; }
 
     private Coroutine spawnCoroutine;
 
