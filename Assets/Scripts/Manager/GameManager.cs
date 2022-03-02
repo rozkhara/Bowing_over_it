@@ -13,14 +13,29 @@ public class GameManager : MonoBehaviour
     public int lureArrowCount;
     public int tripleArrowCount;
 
+    private GameObject menuCanvas;
+    private GameObject canvus;
+
     private void Awake()
     {
         Instance = this;
+        menuCanvas = Tool.AssetLoader.LoadPrefab<GameObject>("MenuCanvas");
+        canvus = Instantiate(menuCanvas);
+        canvus.SetActive(false);
     }
 
     private void OnDestroy()
     {
         Instance = null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            canvus.SetActive(!canvus.activeSelf);
+        }
+        
     }
 
     /// <summary>

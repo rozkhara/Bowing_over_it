@@ -20,4 +20,9 @@ public class MainSceneButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void MainButton()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 }
