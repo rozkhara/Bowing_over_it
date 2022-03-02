@@ -25,6 +25,8 @@ public class Arrow : MonoBehaviour
     private bool isCancelled;
     // private bool isReloaded = false;
 
+    public static bool isReloaded;
+
     protected Vector2 originPos;
 
     private GameObject hook;
@@ -150,6 +152,7 @@ public class Arrow : MonoBehaviour
 
         isFlying = false;
         isLanded = true;
+        isReloaded = false;
 
         tr.enabled = false;
 
@@ -165,6 +168,7 @@ public class Arrow : MonoBehaviour
 
         isFlying = false;
         isLanded = true;
+        isReloaded = false;
 
         col.enabled = false;
         tr.enabled = false;
