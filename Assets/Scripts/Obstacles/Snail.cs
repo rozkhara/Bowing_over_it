@@ -62,7 +62,7 @@ public class Snail : MonoBehaviour
         {
             arrow.DetachRock();
         }
-
+        TargetManager.Instance.GetBonusStar();
         Destroy(gameObject);
     }
 
