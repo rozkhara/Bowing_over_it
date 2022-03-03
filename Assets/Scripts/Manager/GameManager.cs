@@ -39,8 +39,9 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
             canvus.SetActive(!canvus.activeSelf);
+
         }
-        
+
     }
 
     /// <summary>

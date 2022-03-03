@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainSceneButtons : MonoBehaviour
 {
-    
+
     public void ExitButton()
     {
         Application.Quit();
@@ -13,9 +13,10 @@ public class MainSceneButtons : MonoBehaviour
 
     public void NewGameButton()
     {
+        if (Time.timeScale == 0f) Time.timeScale = 1f;
         SceneManager.LoadScene("LevelSelectionScene");
     }
-    
+
     public void HowToPlayButton()
     {
         SceneManager.LoadScene("Tutorial");
@@ -23,6 +24,7 @@ public class MainSceneButtons : MonoBehaviour
 
     public void MainButton()
     {
+        if (Time.timeScale == 0f) Time.timeScale = 1f;
         SceneManager.LoadScene("MainScene");
     }
 }

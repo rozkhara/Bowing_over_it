@@ -55,7 +55,7 @@ public class LevelNode : MonoBehaviour
 
     private void LoadLevelNode()
     {
-        if (PlayerPrefs.HasKey(sceneName + "stars")&&PlayerPrefs.GetInt(sceneName+"stars")>0)
+        if (PlayerPrefs.HasKey(sceneName + "stars") && PlayerPrefs.GetInt(sceneName + "stars") > 0)
         {
             sr.color = new Color(0, 255, 0, 1);
         }
@@ -64,7 +64,7 @@ public class LevelNode : MonoBehaviour
             PlayerPrefs.SetInt(sceneName + "stars", 0);
             sr.color = new Color(255, 0, 0, 1);
         }
-        
+
     }
     private void ShowStars() // calculate number of star player get, show stage clear panel
     {

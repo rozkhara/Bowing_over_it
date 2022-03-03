@@ -15,10 +15,151 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelectionScene.unity
     guid: 97710f76068405249af4072320d6a32e
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 2ea8fc2226c78ba429b2a6b74d747967
-  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 5ca6386ae77f9454da147f0b35afc91c
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 8.unity
+    guid: 2edea0fc690a3d843858be8457009976
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 9.unity
+    guid: 6aa7318524a52ec4ebf1a0d8bc0d29b7
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 10.unity
+    guid: 6d1786acd4b01fe468ce4e529d6fc995
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 11.unity
+    guid: 8036945a6b2d7004ca9dfa5bc36e47d8
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 12.unity
+    guid: 55fc04bfeb6191b45b6121e3e950cd59
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 15.unity
+    guid: 9fc6673d01fd09547b1c773e1e6fd25a
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 16.unity
+    guid: b7b9d906d7a864d47937c0abd2973447
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 17.unity
+    guid: 9f783de42b4b7f9459cfe4e25777438e
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 18.unity
+    guid: 71503d243866056409bdc420516d6add
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 19.unity
+    guid: 3c2c0427f94225449923bd2cda55a6e4
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 20.unity
+    guid: f6cf2fa45c5a56741affe0efbf410847
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 21.unity
+    guid: e69bcc41beb36f641b9fe953cc1fbe44
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 22.unity
+    guid: 17b970cb959360948a6445b64b7fe5b9
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 23.unity
+    guid: 9445c5ed22f22974d83ee0191a325204
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 24.unity
+    guid: d0a81dab5a41e6547a0eb7b0f2dc7e88
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 25.unity
+    guid: a386f2c7b8810af41be007ef3cc882d8
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 26.unity
+    guid: 35d20e9d1012fd14596f6f6c089ae062
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 27.unity
+    guid: ee1d666c53241d24982d5456d2e79582
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 28.unity
+    guid: 1ee620618593c9843aa8dd4d63b42666
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 29.unity
+    guid: df6949735ebf1cd4095dd41627fc058d
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 30.unity
+    guid: 8180c1d1942b33a42b321c4253670e25
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 31.unity
+    guid: a3525280b3bb4cc47b9b6da4ae0f9e2b
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 32.unity
+    guid: 3d9578b4ccd77934db0a03422d80daf0
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 33.unity
+    guid: 351681bbf40fa32429f17f1f14c5bec5
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 40.unity
+    guid: d27b510adc0d0764a8d320cde7f92058
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 41.unity
+    guid: 05171ab6d76c3cf4aa8c20de79f2b5e1
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 42.unity
+    guid: 6bd92ffebb6cebe4086efaba8a1116f4
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 44.unity
+    guid: d189364f57f223e4d97db305667dec71
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 45.unity
+    guid: 02530640c1c51f44f9002508cc7ab03e
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 1.unity
+    guid: 5da45621b3583b3419310fab0a4431f5
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 2.unity
+    guid: cf4f480d0081f7142b3d0e10a727be62
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 3.unity
+    guid: 7ae04beb7f72c54468f5db33cc9e5537
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 4.unity
+    guid: 9f2def174a470384fb81922c7f746946
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 5.unity
+    guid: 3186b78906d6906459c14d9b916f61d0
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 6.unity
+    guid: 12c3f2a43f4b4f04ab5b5aa33ce1bb1f
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 7.unity
+    guid: eb479eaf471acfa4ea46a7349658699e
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 13.unity
+    guid: 2e6edf5b941184146b5c93717644e24d
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 14.unity
+    guid: d795eba103a41de45bd1d2b6276b09f3
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 34.unity
+    guid: 5d76131419997744e87413f041cd0cd9
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 35.unity
+    guid: d35e228d03208d94aae71f60fbd769e5
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 36.unity
+    guid: 45f231e21a3a7ed459ba0ba95e23cf48
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 37.unity
+    guid: 9865fb472cfe30347907cc9a54950bb7
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 38.unity
+    guid: 4e9be7f63aad45646b8484c8e8a6d9f9
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 39.unity
+    guid: 0c2b28b6585941f449319e676ac479d3
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 43.unity
+    guid: b0baa704cc0a30e41a018915bee7aeda
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 47.unity
+    guid: 554d48ddd7bdfdd418d177699b7c399f
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 48.unity
+    guid: 3a2e1404440d3b84a9df233cac3a27b0
+  - enabled: 1
+    path: Assets/Scenes/GL Map/Level 46.unity
+    guid: 97d0bcdf1a18eb847a1bb997b398f929
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 58c3bd90292067f4a86d3cb2befb5215, type: 2}
