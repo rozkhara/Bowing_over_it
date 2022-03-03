@@ -490,6 +490,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3836591990628914022, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990628914022, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991486116898, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991486116898, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991566267453, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991566267453, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991777900407, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991777900407, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224645186534504461, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224645186534504461, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 0.76
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
 --- !u!224 &425395399 stripped
@@ -2772,11 +2820,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowCount: 0
-  stoneArrowCount: 3
+  stoneArrowCount: 4
   explosiveArrowCount: 0
   warpArrowCount: 0
   lureArrowCount: 0
   tripleArrowCount: 0
+  drag: 0
+  isFlipped: 0
 --- !u!4 &1796913832
 Transform:
   m_ObjectHideFlags: 0
@@ -2837,19 +2887,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 18.057564
+      value: 6.7025023
       objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.8853893
+      value: 3.4320302
       objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6568
+      value: 6.11
       objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7436
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 3689097398660138127, guid: 0b235a95979ae484793d9db3f531f2b8, type: 3}
       propertyPath: m_LocalPosition.z

@@ -377,6 +377,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3836591990628914022, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -7.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990628914022, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -7.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991566267453, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -7.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591991566267453, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: -0.47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
 --- !u!1001 &967559026
@@ -2399,8 +2423,10 @@ MonoBehaviour:
   stoneArrowCount: 0
   explosiveArrowCount: 0
   warpArrowCount: 0
-  lureArrowCount: 0
+  lureArrowCount: 1
   tripleArrowCount: 0
+  drag: 0
+  isFlipped: 0
 --- !u!4 &1796913832
 Transform:
   m_ObjectHideFlags: 0
