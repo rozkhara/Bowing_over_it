@@ -38,5 +38,6 @@ public class Cloud : MonoBehaviour
     {
         arrow.isFrozen = true;
         arrow.GetComponent<SpriteRenderer>().color = Color.blue;
+        arrow.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, arrow.GetComponent<Rigidbody2D>().velocity.y);
     }
 }
