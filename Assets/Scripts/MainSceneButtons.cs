@@ -14,6 +14,12 @@ public class MainSceneButtons : MonoBehaviour
     public void NewGameButton()
     {
         if (Time.timeScale == 0f) Time.timeScale = 1f;
+        string tmp = SceneManager.GetActiveScene().name;
+        if (tmp != "MainScene" && tmp != "Tutorial")
+        {
+            PlayerPrefs.SetString("LastPlayedLevel", tmp);
+            PlayerPrefs.Save();
+        }
         SceneManager.LoadScene("LevelSelectionScene");
     }
 

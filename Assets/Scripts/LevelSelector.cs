@@ -11,8 +11,15 @@ public class LevelSelector : MonoBehaviour
 
     private bool isReady = true;
 
+    private string tmp;
+
     private void Start()
     {
+        if (PlayerPrefs.HasKey("LastPlayedLevel"))
+        {
+            tmp = PlayerPrefs.GetString("LastPlayedLevel");
+            curLevelNode = GameObject.Find(tmp).GetComponent<LevelNode>();
+        }
         rb = GetComponent<Rigidbody2D>();
         rb.position = curLevelNode.gameObject.transform.position;
     }
