@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812ca4b7f6291584a8bde58d4ca10740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowCount: 8
+  arrowCount: 4
   stoneArrowCount: 4
   explosiveArrowCount: 0
   warpArrowCount: 0
