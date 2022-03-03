@@ -55,7 +55,7 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //arrow의 position이 화살촉 끝이라 가정
-        if (collision.transform.tag == "Arrow")
+        if (collision.transform.tag.Contains("Arrow"))
         {
             StartCoroutine(ArrowTrigger(collision.transform.GetComponent<Rigidbody2D>()));
         }

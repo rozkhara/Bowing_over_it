@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartNewStage(int maxStar, float clearTime, int arrowCount)
     {
-        this.arrowCount = arrowCount;
         Target[] targets = FindObjectsOfType<Target>();
         TargetManager.Instance.countOrigin = targets.Length;
         TargetManager.Instance.count = TargetManager.Instance.countOrigin;
