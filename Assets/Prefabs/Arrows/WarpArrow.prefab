@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 201719145896508920}
   - component: {fileID: 142864912086260933}
   m_Layer: 0
-  m_Name: TeleportArrow
+  m_Name: WarpArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
