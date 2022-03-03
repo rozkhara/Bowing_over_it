@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
+            Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
             canvus.SetActive(!canvus.activeSelf);
         }
         
