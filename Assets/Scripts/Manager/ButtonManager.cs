@@ -15,7 +15,9 @@ public class ButtonManager : MonoBehaviour
         if (--(GameManager.Instance.arrowCount) >= 0)
         {
             var arrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/Arrow");
-            Instantiate(arrowPrefab, originPos, Quaternion.identity);
+            var newArrow = Instantiate(arrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else
@@ -31,7 +33,9 @@ public class ButtonManager : MonoBehaviour
         if (--(GameManager.Instance.stoneArrowCount) >= 0)
         {
             var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/StoneArrow");
-            Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            var newArrow = Instantiate(stoneArrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else
@@ -46,8 +50,10 @@ public class ButtonManager : MonoBehaviour
 
         if (--(GameManager.Instance.explosiveArrowCount) >= 0)
         {
-            var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/ExplosiveArrow");
-            Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            var explosiveArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/ExplosiveArrow");
+            var newArrow = Instantiate(explosiveArrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else
@@ -62,8 +68,10 @@ public class ButtonManager : MonoBehaviour
 
         if (--(GameManager.Instance.warpArrowCount) >= 0)
         {
-            var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/WarpArrow");
-            Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            var warpArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/WarpArrow");
+            var newArrow = Instantiate(warpArrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else
@@ -78,8 +86,10 @@ public class ButtonManager : MonoBehaviour
 
         if (--(GameManager.Instance.lureArrowCount) >= 0)
         {
-            var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/LureArrow");
-            Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            var lureArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/LureArrow");
+            var newArrow = Instantiate(lureArrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else
@@ -94,8 +104,10 @@ public class ButtonManager : MonoBehaviour
 
         if (--(GameManager.Instance.tripleArrowCount) >= 0)
         {
-            var stoneArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/TripleArrow");
-            Instantiate(stoneArrowPrefab, originPos, Quaternion.identity);
+            var tripleArrowPrefab = AssetLoader.LoadPrefab<GameObject>("Arrows/TripleArrow");
+            var newArrow = Instantiate(tripleArrowPrefab, originPos, Quaternion.identity).GetComponent<SpriteRenderer>();
+            if (GameManager.Instance.isFlipped) newArrow.flipX = false;
+
             Arrow.isReloaded = true;
         }
         else

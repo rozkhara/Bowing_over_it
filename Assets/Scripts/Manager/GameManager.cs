@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public int lureArrowCount;
     public int tripleArrowCount;
 
+    public float drag;
+
+    public bool isFlipped;
+
     private GameObject menuCanvas;
     private GameObject canvus;
 

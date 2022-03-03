@@ -9,8 +9,6 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private float force;
     [SerializeField]
-    private float drag;
-    [SerializeField]
     private float maxDragDist;
     [SerializeField]
     private float minDragDist;
@@ -225,7 +223,7 @@ public class Arrow : MonoBehaviour
     protected virtual IEnumerator Release()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 moveVec = (originPos - rb.position) * (force - drag);
+        Vector2 moveVec = (originPos - rb.position) * (force - GameManager.Instance.drag);
         rb.velocity = moveVec;
 
         isFlying = true;
@@ -296,7 +294,7 @@ public class Arrow : MonoBehaviour
 
     private Vector2 PointPosition(float t)
     {
-        Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * (force - drag) * t + 0.5f * Physics2D.gravity * (t * t);
+        Vector2 curPointPos = (Vector2)transform.position + (originPos - rb.position) * (force - GameManager.Instance.drag) * t + 0.5f * Physics2D.gravity * (t * t);
         return curPointPos;
     }
 
