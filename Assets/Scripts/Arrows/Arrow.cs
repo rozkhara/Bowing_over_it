@@ -171,6 +171,7 @@ public class Arrow : MonoBehaviour
         }
 
         isFlying = false;
+        isLanded = true;
         isReloaded = false;
 
         col.enabled = false;
