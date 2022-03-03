@@ -15,9 +15,9 @@ public class Seaweed : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Arrow")
+        if (collision.tag.Contains("Arrow"))
         {
-
+            Arrow.isReloaded = false;
             Rigidbody2D arrow = collision.GetComponent<Rigidbody2D>();
             rb.velocity = arrow.velocity / 2;
             arrow.velocity /= 1.1f;
