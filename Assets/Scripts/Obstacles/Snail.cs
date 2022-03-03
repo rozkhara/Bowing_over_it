@@ -8,12 +8,14 @@ public class Snail : MonoBehaviour
     public float speed;
 
     private float pos;
+    private float originPos;
 
     private List<Arrow> arrows = new List<Arrow>();
 
     private void Start()
     {
         pos = transform.position.x;
+        originPos = pos;
     }
 
     private void Update()
@@ -38,11 +40,11 @@ public class Snail : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "StoneArrow")
+        if (collision.gameObject.tag == "StoneArrow")
         {
             TakeDamage(GetHp());
         }
-        else
+        else if (collision.gameObject.tag.Contains("Arrow"))
         {
             arrows.Add(collision.gameObject.GetComponent<Arrow>());
 
@@ -67,15 +69,15 @@ public class Snail : MonoBehaviour
 
         pos += Time.deltaTime * speed;
 
-        if (pos >= rightMax)
+        if (pos >= originPos + rightMax)
         {
             speed *= -1;
-            pos = rightMax;
+            pos = originPos + rightMax;
         }
-        else if (pos <= leftMax)
+        else if (pos <= originPos + leftMax)
         {
             speed *= -1;
-            pos = leftMax;
+            pos = originPos + leftMax;
         }
 
         transform.position = new Vector3(pos, transform.position.y, 0);
