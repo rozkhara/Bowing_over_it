@@ -22,6 +22,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.arrowCount = 0;
             Debug.Log("화살이 다 떨어졌습니다!");
         }
     }
@@ -40,6 +41,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.stoneArrowCount = 0;
             Debug.Log("돌 화살이 다 떨어졌습니다!");
         }
     }
@@ -58,6 +60,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.explosiveArrowCount = 0;
             Debug.Log("폭발 화살이 다 떨어졌습니다!");
         }
     }
@@ -76,6 +79,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.warpArrowCount = 0;
             Debug.Log("워프 화살이 다 떨어졌습니다!");
         }
     }
@@ -94,6 +98,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.lureArrowCount = 0;
             Debug.Log("미끼 화살이 다 떨어졌습니다!");
         }
     }
@@ -112,6 +117,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.tripleArrowCount = 0;
             Debug.Log("3단 화살이 다 떨어졌습니다!");
         }
     }
