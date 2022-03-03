@@ -1332,12 +1332,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812ca4b7f6291584a8bde58d4ca10740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowCount: 5
+  arrowCount: 0
   stoneArrowCount: 0
   explosiveArrowCount: 0
   warpArrowCount: 0
   lureArrowCount: 0
   tripleArrowCount: 0
+  drag: 0
+  isFlipped: 0
 --- !u!4 &1796913832
 Transform:
   m_ObjectHideFlags: 0
