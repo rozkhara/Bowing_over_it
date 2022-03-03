@@ -76,7 +76,7 @@ public class LevelSelector : MonoBehaviour
     {
         while (rb.position != (Vector2)dest.gameObject.transform.localPosition)
         {
-            rb.MovePosition(Vector2.MoveTowards(rb.position, dest.gameObject.transform.localPosition, 60f * Time.deltaTime));
+            rb.MovePosition(Vector2.MoveTowards(rb.position, dest.gameObject.transform.localPosition, 120f * Time.deltaTime));
             yield return null;
         }
 
