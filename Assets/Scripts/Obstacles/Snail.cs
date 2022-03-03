@@ -42,7 +42,7 @@ public class Snail : MonoBehaviour
     {
         if (collision.gameObject.tag == "StoneArrow")
         {
-            if (collision.gameObject.GetComponent<StoneArrow>().isLanded) return;
+            if (collision.gameObject.GetComponent<Arrow>().isLanded) return;
 
             TakeDamage(GetHp());
         }
