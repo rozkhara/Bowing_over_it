@@ -2186,6 +2186,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.x
+      value: -7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836591990934987518, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
+      propertyPath: originPos.y
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71946cbe31a3598449bba477b82b3af2, type: 3}
 --- !u!1001 &504046032
