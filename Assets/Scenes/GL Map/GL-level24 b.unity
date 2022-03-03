@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.64
+      value: -13.13
       objectReference: {fileID: 0}
     - target: {fileID: 7164091951701137829, guid: 0da51b8992952d64d8b9d04642df1c4b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2455,6 +2455,8 @@ MonoBehaviour:
   warpArrowCount: 0
   lureArrowCount: 0
   tripleArrowCount: 0
+  drag: 0
+  isFlipped: 0
 --- !u!4 &1796913832
 Transform:
   m_ObjectHideFlags: 0
