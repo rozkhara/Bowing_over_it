@@ -2356,6 +2356,8 @@ MonoBehaviour:
   warpArrowCount: 0
   lureArrowCount: 0
   tripleArrowCount: 0
+  drag: -1.5
+  isFlipped: 0
 --- !u!4 &1382721373
 Transform:
   m_ObjectHideFlags: 0
