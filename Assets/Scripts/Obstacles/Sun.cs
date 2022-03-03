@@ -15,6 +15,7 @@ public class Sun : MonoBehaviour
         if (arrow != null && Vector2.Distance(arrow.rb.position, transform.position) <= range)
         {
             // StartCoroutine(arrow.ReloadCoroutine());
+            Arrow.isReloaded = false;
             Destroy(arrow.gameObject);
         }
     }

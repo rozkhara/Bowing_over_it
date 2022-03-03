@@ -39,12 +39,14 @@ public class Arrow : MonoBehaviour
     public Rigidbody2D rb { get; set; }
     protected Collider2D col;
     public TrailRenderer tr { get; set; }
+    private SpriteRenderer sr;
 
     protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         tr = GetComponent<TrailRenderer>();
+        sr = GetComponent<SpriteRenderer>();
 
         isClone = false;
         isFrozen = false;
@@ -135,6 +137,8 @@ public class Arrow : MonoBehaviour
         // 화살을 진행방향에 맞게 회전
         if (isFlying && !isFrozen)
         {
+            if (GameManager.Instance.isFlipped) sr.flipX = true;
+
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x);
             rb.MoveRotation(Quaternion.Euler(new Vector3(0, 0, (angle * 180) / Mathf.PI)));
         }
