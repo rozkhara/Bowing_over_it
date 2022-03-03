@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 5ca6386ae77f9454da147f0b35afc91c
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: d5a84a00a5636c94692f850bbdcd2fb3
   - enabled: 1
     path: Assets/Scenes/LevelSelectionScene.unity
     guid: 97710f76068405249af4072320d6a32e
-  - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 5ca6386ae77f9454da147f0b35afc91c
   - enabled: 1
     path: Assets/Scenes/GL Map/Level 8.unity
     guid: 2edea0fc690a3d843858be8457009976
@@ -122,21 +122,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hena Map/Level 7.unity
     guid: eb479eaf471acfa4ea46a7349658699e
-  - enabled: 0
-    path: Assets/Scenes/Hena Map/Level 8.unity
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 13.unity
     guid: 2e6edf5b941184146b5c93717644e24d
-  - enabled: 0
-    path: Assets/Scenes/Hena Map/Level 9.unity
+  - enabled: 1
+    path: Assets/Scenes/Hena Map/Level 14.unity
     guid: d795eba103a41de45bd1d2b6276b09f3
   - enabled: 1
     path: Assets/Scenes/Hena Map/Level 34.unity
     guid: 5d76131419997744e87413f041cd0cd9
   - enabled: 1
-    path: Assets/Scenes/Hena Map/Level 13.unity
-    guid: d35e228d03208d94aae71f60fbd769e5
+    path: Assets/Scenes/Hena Map/Level 35.unity
+    guid: 5bb56b6664f57e04198ff7783e5a8ece
   - enabled: 1
-    path: Assets/Scenes/Hena Map/Level 14.unity
-    guid: 45f231e21a3a7ed459ba0ba95e23cf48
+    path: Assets/Scenes/Hena Map/Level 36.unity
+    guid: 3e19761a866ee9b4b8416d333e23ee5e
   - enabled: 1
     path: Assets/Scenes/Hena Map/Level 37.unity
     guid: 9865fb472cfe30347907cc9a54950bb7
