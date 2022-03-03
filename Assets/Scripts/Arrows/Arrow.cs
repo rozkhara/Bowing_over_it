@@ -153,7 +153,9 @@ public class Arrow : MonoBehaviour
         }
 
         isFlying = false;
+
         isLanded = true;
+
         isReloaded = false;
 
         tr.enabled = false;
@@ -169,7 +171,6 @@ public class Arrow : MonoBehaviour
         }
 
         isFlying = false;
-        isLanded = true;
         isReloaded = false;
 
         col.enabled = false;
