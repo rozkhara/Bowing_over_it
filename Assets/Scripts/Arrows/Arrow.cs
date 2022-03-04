@@ -114,7 +114,15 @@ public class Arrow : MonoBehaviour
             {
                 isPressed = false;
                 rb.isKinematic = false;
-
+                if (Random.Range(0, 2) == 1)
+                {
+                    SoundManager.Instance.PlaySFXSound("Arrow_release1", 0.5f);
+                }
+                else
+                {
+                    SoundManager.Instance.PlaySFXSound("Arrow_release2", 0.5f);
+                }
+                SoundManager.Instance.PlaySFXSound("Arrow_midAir", 0.5f);
                 StartCoroutine(Release());
             }
             else
@@ -159,6 +167,9 @@ public class Arrow : MonoBehaviour
         isReloaded = false;
 
         tr.enabled = false;
+
+        SoundManager.Instance.PlaySFXSound("Arrow_hit", 0.5f);
+
 
         // Reload();
     }

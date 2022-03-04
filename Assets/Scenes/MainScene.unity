@@ -522,8 +522,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aba09d0ee082164796e16af28ce6a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainBgmAudioClip: {fileID: 0}
-  sfxAudioClips: []
+  mainBgmAudioClip: {fileID: 8300000, guid: e5354cbe065ddcc4d8d47055002e4245, type: 3}
+  sfxAudioClips:
+  - {fileID: 8300000, guid: 4f0af4019e12ed44c860805c623aa9ee, type: 3}
+  - {fileID: 8300000, guid: 4ce88995a82e8e742b944414aed02ecd, type: 3}
+  - {fileID: 8300000, guid: 78bc7001295ea5041a84d571b8e128c1, type: 3}
+  - {fileID: 8300000, guid: afb76edf80596a84a9895df092f06a4d, type: 3}
 --- !u!4 &389078652
 Transform:
   m_ObjectHideFlags: 0
